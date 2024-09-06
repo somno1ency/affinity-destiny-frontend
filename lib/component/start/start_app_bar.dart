@@ -17,7 +17,10 @@ class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white),
+        style: Theme.of(context)
+            .primaryTextTheme
+            .labelMedium!
+            .copyWith(color: Colors.white),
       ),
       leading: IconButton(
         icon: const Icon(

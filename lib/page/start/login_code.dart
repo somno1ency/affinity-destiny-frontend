@@ -6,14 +6,14 @@ import '../../component/start/start_app_bar.dart';
 import '../../component/start/start_body_skeleton.dart';
 import '../../component/shared/go_step.dart';
 
-class RegisterCodePage extends StatefulWidget {
-  const RegisterCodePage({super.key});
+class LoginCodePage extends StatefulWidget {
+  const LoginCodePage({super.key});
 
   @override
-  State<RegisterCodePage> createState() => _RegisterCodePageState();
+  State<LoginCodePage> createState() => _LoginCodePageState();
 }
 
-class _RegisterCodePageState extends State<RegisterCodePage>
+class _LoginCodePageState extends State<LoginCodePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -47,11 +47,11 @@ class _RegisterCodePageState extends State<RegisterCodePage>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
-        title: AppLocalizations.of(context)!.start_signUp,
+        title: AppLocalizations.of(context)!.start_signIn,
         callback: () {},
       ),
       body: StartBodySkeleton(
-        tips: AppLocalizations.of(context)!.register_phoneCodeTips,
+        tips: AppLocalizations.of(context)!.start_signIn,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -67,6 +67,17 @@ class _RegisterCodePageState extends State<RegisterCodePage>
               ),
             ),
             _buildRegisterCode(6),
+            Container(
+              padding: EdgeInsets.only(
+                left: stepPadding,
+                top: 10,
+              ),
+              child: GoStep(
+                tips: AppLocalizations.of(context)!.login_passwordTips,
+                icon: EvaIcons.arrowCircleRight,
+                callback: () {},
+              ),
+            ),
           ],
         ),
         iconButton: IconButton(

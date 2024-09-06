@@ -54,14 +54,16 @@ class RadiusInput extends StatelessWidget {
                   contentPadding: const EdgeInsets.only(left: 10),
                   border: InputBorder.none,
                   hintText: hintText,
-                  hintStyle: TextStyle(
-                    color: Theme.of(context).primaryColor.withOpacity(0.5),
-                    fontSize: 12,
-                  ),
+                  hintStyle: Theme.of(context)
+                      .primaryTextTheme
+                      .labelMedium!
+                      .copyWith(
+                        color: Theme.of(context).primaryColor.withOpacity(0.5),
+                      ),
                 ),
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                ),
+                style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
+                      color: Theme.of(context).primaryColor,
+                    ),
               ),
             ),
             Container(

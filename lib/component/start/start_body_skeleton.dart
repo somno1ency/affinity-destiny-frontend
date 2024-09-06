@@ -36,13 +36,16 @@ class StartBodySkeleton extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           tips,
-                          style: const TextStyle(fontSize: 28),
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .labelLarge!
+                              .copyWith(color: Theme.of(context).primaryColor),
                         ),
                         const SizedBox(height: 100),
                         body,

@@ -17,17 +17,9 @@ class AppBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.white,
       onTap: callback,
       currentIndex: currentIndex,
-      elevation: 3,
-      type: BottomNavigationBarType.fixed,
       iconSize: 22,
-      selectedItemColor: Theme.of(context).primaryColor,
-      selectedLabelStyle: const TextStyle(fontSize: 10),
-      unselectedLabelStyle: const TextStyle(fontSize: 10),
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
       items: menus.map(_buildItemByMenuMeta).toList(),
     );
   }

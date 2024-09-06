@@ -60,10 +60,10 @@ class AppStart extends StatelessWidget {
           ),
           child: Text(
             AppLocalizations.of(context)!.start_signUp,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white,
-            ),
+            style: Theme.of(context)
+                .primaryTextTheme
+                .labelMedium!
+                .copyWith(color: Colors.white),
           ),
         ),
         OutlinedButton(
@@ -76,10 +76,10 @@ class AppStart extends StatelessWidget {
           ),
           child: Text(
             AppLocalizations.of(context)!.start_signIn,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white,
-            ),
+            style: Theme.of(context)
+                .primaryTextTheme
+                .labelMedium!
+                .copyWith(color: Colors.white),
           ),
         ),
       ],
@@ -100,10 +100,10 @@ class AppStart extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           AppLocalizations.of(context)!.start_signInOtherWay,
-          style: const TextStyle(
-            fontSize: 12,
-            color: Colors.white,
-          ),
+          style: Theme.of(context)
+              .primaryTextTheme
+              .labelMedium!
+              .copyWith(color: Colors.white),
         ),
         const SizedBox(width: 10),
         SizedBox(
@@ -138,18 +138,18 @@ class AppStart extends StatelessWidget {
           onPressed: () {},
           icon: const Icon(
             Ionicons.checkmark_circle_outline,
-            size: 11,
           ),
           color: Colors.white,
           alignment: Alignment.centerRight,
+          iconSize: 12,
           padding: const EdgeInsets.fromLTRB(0, 2, 1, 0),
         ),
         Text(
           AppLocalizations.of(context)!.start_agreement,
-          style: const TextStyle(
-            fontSize: 10,
-            color: Colors.white,
-          ),
+          style: Theme.of(context)
+              .primaryTextTheme
+              .labelSmall!
+              .copyWith(color: Colors.white),
         ),
       ],
     );

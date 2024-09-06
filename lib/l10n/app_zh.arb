@@ -13,5 +13,10 @@
     "register_welcome": "欢 迎 加 入",
     "register_phoneTips": "您的手机号码...",
     "register_phoneCodeTips": "验 证 码",
-    "register_prevStep": "上一步"
+    "register_prevStep": "上一步",
+    "login_phoneTips": "短信登录",
+    "login_passwordTips": "密码登录",
+    "login_phone": "手机",
+    "login_password": "密码",
+    "login_passwordHereTips": "您的密码..."
 }

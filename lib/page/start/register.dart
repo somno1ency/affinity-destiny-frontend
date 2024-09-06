@@ -42,6 +42,7 @@ class _RegisterPageState extends State<RegisterPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
         title: AppLocalizations.of(context)!.start_signUp,
         callback: () {},
@@ -56,7 +57,10 @@ class _RegisterPageState extends State<RegisterPage>
           leftPart: Center(
             child: Text(
               '+86',
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: Theme.of(context)
+                  .primaryTextTheme
+                  .labelMedium!
+                  .copyWith(color: Theme.of(context).primaryColor),
               textAlign: TextAlign.center,
             ),
           ),
@@ -68,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage>
                 icon: Icon(
                   Ionicons.help_circle_outline,
                   color: Theme.of(context).primaryColor,
-                  size: 25,
+                  size: 20,
                 ),
               ),
             ],

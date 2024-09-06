@@ -13,5 +13,10 @@
     "register_welcome": "Quick Registration",
     "register_phoneTips": "your phone number here...",
     "register_phoneCodeTips": "Validate Code",
-    "register_prevStep": "Previous Step"
+    "register_prevStep": "Previous Step",
+    "login_phoneTips": "Login by phone number",
+    "login_passwordTips": "Login by password",
+    "login_phone": "Phone",
+    "login_password": "Password",
+    "login_passwordHereTips": "your password here..."
 }
