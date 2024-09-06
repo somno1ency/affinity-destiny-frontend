@@ -1,0 +1,17 @@
+{
+    "@@locale": "en",
+    "app_title": "Affinity Destiny",
+    "navMenu_singleChat": "Chat",
+    "navMenu_groupChat": "Group",
+    "navMenu_contact": "Contact",
+    "navMenu_discovery": "Discovery",
+    "navMenu_account": "Account",
+    "start_signUp": "Sign Up",
+    "start_signIn": "Login",
+    "start_signInOtherWay": "use another way to sign in",
+    "start_agreement": "I agree to the Terms and Conditions of Use and Privacy Policy",
+    "register_welcome": "Quick Registration",
+    "register_phoneTips": "your phone number here...",
+    "register_phoneCodeTips": "Validate Code",
+    "register_prevStep": "Previous Step"
+}

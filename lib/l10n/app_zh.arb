@@ -1,0 +1,17 @@
+{
+    "@@locale": "zh",
+    "app_title": "睦*缘",
+    "navMenu_singleChat": "聊天",
+    "navMenu_groupChat": "群聊",
+    "navMenu_contact": "通讯录",
+    "navMenu_discovery": "发现",
+    "navMenu_account": "我",
+    "start_signUp": "注 册",
+    "start_signIn": "登 录",
+    "start_signInOtherWay": "其他方式登录",
+    "start_agreement": "同意《用户服务协议》和《隐私政策》",
+    "register_welcome": "欢 迎 加 入",
+    "register_phoneTips": "您的手机号码...",
+    "register_phoneCodeTips": "验 证 码",
+    "register_prevStep": "上一步"
+}
