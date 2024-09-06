@@ -2,19 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../component/navigation/app_bottom_bar.dart';
-import '../model/navigation/navigation_menu.dart';
+import '../../component/shared/app_bottom_bar.dart';
+import '../../model/shared/navigation_menu.dart';
+import '../../page/chat/chat_list.dart';
 
-class AppNavigation extends StatefulWidget {
-  const AppNavigation({super.key});
+class AppNavigationPage extends StatefulWidget {
+  final int index;
+
+  const AppNavigationPage({super.key, this.index = 0});
 
   @override
-  State<AppNavigation> createState() => _AppNavigationState();
+  State<AppNavigationPage> createState() => _AppNavigationPageState();
 }
 
-class _AppNavigationState extends State<AppNavigation> {
+class _AppNavigationPageState extends State<AppNavigationPage> {
   final PageController _controller = PageController();
   int _index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _index = widget.index;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +70,13 @@ class _AppNavigationState extends State<AppNavigation> {
   Widget _buildContent() {
     return PageView(
       controller: _controller,
-      children: const [],
+      children: const [
+        ChatListPage(title: '单聊'),
+        ChatListPage(title: '群聊'),
+        ChatListPage(title: '联系人'),
+        ChatListPage(title: '发现'),
+        ChatListPage(title: '账户'),
+      ],
     );
   }
 

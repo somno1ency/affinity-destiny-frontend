@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../model/navigation/navigation_menu.dart';
+import '../../model/shared/navigation_menu.dart';
 
 class AppBottomBar extends StatelessWidget {
   final int currentIndex;

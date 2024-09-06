@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AppStart extends StatelessWidget {
-  const AppStart({super.key});
+class AppStartPage extends StatelessWidget {
+  const AppStartPage({super.key});
 
   @override
   Widget build(BuildContext context) {

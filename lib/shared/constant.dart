@@ -17,4 +17,6 @@ const String routerGroupChatList = 'groupChat';
 const String routerGroupDetail = 'groupDetail';
 const String routerGroupMemberDetail = 'groupMemberDetail';
 const String routerContact = 'contact';
+const String routerDiscovery = 'discovery';
+const String routerAccount = 'account';
 const String routerSetBackground = 'setBackGround';

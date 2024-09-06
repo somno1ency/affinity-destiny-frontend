@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'shared/constant.dart';
-import 'entry/app_navigation.dart';
-import 'entry/app_start.dart';
+import 'page/start/app_navigation.dart';
+import 'page/start/app_start.dart';
 import 'page/start/register.dart';
 import 'page/start/register_code.dart';
 import 'page/start/login_phone.dart';
@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: routeMap,
-      initialRoute: appLogin == true ? routerLoginByPassword : routerStart,
+      initialRoute: appLogin == true ? routerMain : routerStart,
     );
   }
 }
