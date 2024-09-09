@@ -7,6 +7,7 @@ import '../../component/start/start_app_bar.dart';
 import '../../component/start/start_body_skeleton.dart';
 import '../../component/shared/radius_input.dart';
 import '../../component//shared/go_step.dart';
+import '../../shared/constant.dart';
 
 class LoginByPhonePage extends StatefulWidget {
   const LoginByPhonePage({super.key});
@@ -49,7 +50,9 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
       resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
         title: AppLocalizations.of(context)!.start_signIn,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: StartBodySkeleton(
         tips: AppLocalizations.of(context)!.start_signIn,
@@ -60,6 +63,8 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
+              fontSize:
+                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
               leftPart: Center(
                 child: Text(
                   '+86',
@@ -93,13 +98,17 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_passwordTips,
                 icon: EvaIcons.arrowCircleRight,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).pushNamed(routerLoginByPassword);
+                },
               ),
             ),
           ],
         ),
         iconButton: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, routerLoginCode);
+          },
           icon: Icon(
             EvaIcons.arrowCircleRight,
             color: Theme.of(context).primaryColor,

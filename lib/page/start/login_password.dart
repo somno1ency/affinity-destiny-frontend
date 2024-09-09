@@ -7,6 +7,7 @@ import '../../component/start/start_app_bar.dart';
 import '../../component/start/start_body_skeleton.dart';
 import '../../component/shared/radius_input.dart';
 import '../../component/shared/go_step.dart';
+import '../../shared/constant.dart';
 
 class LoginByPasswordPage extends StatefulWidget {
   const LoginByPasswordPage({super.key});
@@ -49,7 +50,9 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
       resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
         title: AppLocalizations.of(context)!.start_signIn,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: StartBodySkeleton(
         tips: AppLocalizations.of(context)!.start_signIn,
@@ -60,15 +63,31 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
-              leftPart: Center(
-                child: Text(
-                  AppLocalizations.of(context)!.login_phone,
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .labelMedium!
-                      .copyWith(color: Theme.of(context).primaryColor),
-                  textAlign: TextAlign.center,
-                ),
+              fontSize:
+                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
+              // 以下两种方式都可以实现垂直居中(Center/Column),不过Center简单一点
+              // leftPart: Center(
+              //   child: Text(
+              //     AppLocalizations.of(context)!.login_phone,
+              //     style: Theme.of(context)
+              //         .primaryTextTheme
+              //         .labelMedium!
+              //         .copyWith(color: Theme.of(context).primaryColor),
+              //     textAlign: TextAlign.center,
+              //   ),
+              // ),
+              leftPart: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.login_phone,
+                    style: Theme.of(context)
+                        .primaryTextTheme
+                        .labelMedium!
+                        .copyWith(color: Theme.of(context).primaryColor),
+                    textAlign: TextAlign.center,
+                  )
+                ],
               ),
               rightPart: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -91,6 +110,8 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
+              fontSize:
+                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
               leftPart: Center(
                 child: Text(
                   AppLocalizations.of(context)!.login_password,
@@ -124,13 +145,17 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_phoneTips,
                 icon: EvaIcons.arrowCircleRight,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).pushNamed(routerLoginByPhone);
+                },
               ),
             ),
           ],
         ),
         iconButton: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(routerMain);
+          },
           icon: Icon(
             EvaIcons.arrowCircleRight,
             color: Theme.of(context).primaryColor,

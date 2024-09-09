@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import '../../component/start/start_app_bar.dart';
 import '../../component/start/start_body_skeleton.dart';
 import '../../component/shared/radius_input.dart';
+import '../../shared/constant.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -45,7 +46,9 @@ class _RegisterPageState extends State<RegisterPage>
       resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
         title: AppLocalizations.of(context)!.start_signUp,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: StartBodySkeleton(
         tips: AppLocalizations.of(context)!.register_welcome,
@@ -54,6 +57,7 @@ class _RegisterPageState extends State<RegisterPage>
           bodyWidth: 200,
           height: 50,
           radius: 40,
+          fontSize: Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
           leftPart: Center(
             child: Text(
               '+86',
@@ -80,7 +84,9 @@ class _RegisterPageState extends State<RegisterPage>
           hintText: AppLocalizations.of(context)!.register_phoneTips,
         ),
         iconButton: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, routerRegisterCode);
+          },
           icon: Icon(
             EvaIcons.arrowCircleRight,
             color: Theme.of(context).primaryColor,

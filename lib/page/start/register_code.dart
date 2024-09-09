@@ -5,6 +5,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import '../../component/start/start_app_bar.dart';
 import '../../component/start/start_body_skeleton.dart';
 import '../../component/shared/go_step.dart';
+import '../../shared/constant.dart';
 
 class RegisterCodePage extends StatefulWidget {
   const RegisterCodePage({super.key});
@@ -48,7 +49,9 @@ class _RegisterCodePageState extends State<RegisterCodePage>
       resizeToAvoidBottomInset: false,
       appBar: StartAppBar(
         title: AppLocalizations.of(context)!.start_signUp,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pop();
+        },
       ),
       body: StartBodySkeleton(
         tips: AppLocalizations.of(context)!.register_phoneCodeTips,
@@ -63,14 +66,18 @@ class _RegisterCodePageState extends State<RegisterCodePage>
               child: GoStep(
                 tips: AppLocalizations.of(context)!.register_prevStep,
                 icon: EvaIcons.arrowCircleLeft,
-                callback: () {},
+                callback: () {
+                  Navigator.of(context).pop();
+                },
               ),
             ),
             _buildRegisterCode(6),
           ],
         ),
         iconButton: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(routerMain);
+          },
           icon: Icon(
             EvaIcons.arrowCircleRight,
             color: Theme.of(context).primaryColor,
@@ -94,8 +101,10 @@ class _RegisterCodePageState extends State<RegisterCodePage>
             borderRadius: BorderRadius.circular(10),
           ),
           child: TextField(
+            cursorColor: Theme.of(context).primaryColor,
             textAlign: TextAlign.center,
             decoration: const InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 11),
               border: InputBorder.none,
             ),
             style: Theme.of(context)

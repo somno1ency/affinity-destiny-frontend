@@ -8,6 +8,7 @@ class RadiusInput extends StatelessWidget {
   final Widget leftPart;
   final Widget rightPart;
   final String hintText;
+  final double fontSize;
 
   const RadiusInput({
     super.key,
@@ -18,10 +19,12 @@ class RadiusInput extends StatelessWidget {
     required this.leftPart,
     required this.rightPart,
     required this.hintText,
+    required this.fontSize,
   });
 
   @override
   Widget build(BuildContext context) {
+    double verticalPadding = (height - fontSize - 2) / 2;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -50,8 +53,12 @@ class RadiusInput extends StatelessWidget {
                 ),
               ),
               child: TextField(
+                cursorColor: Theme.of(context).primaryColor,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(left: 10),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: verticalPadding,
+                    horizontal: 10,
+                  ),
                   border: InputBorder.none,
                   hintText: hintText,
                   hintStyle: Theme.of(context)
@@ -59,11 +66,13 @@ class RadiusInput extends StatelessWidget {
                       .labelMedium!
                       .copyWith(
                         color: Theme.of(context).primaryColor.withOpacity(0.5),
+                        height: 1,
                       ),
                 ),
-                style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
+                style: Theme.of(context)
+                    .primaryTextTheme
+                    .labelMedium!
+                    .copyWith(color: Theme.of(context).primaryColor),
               ),
             ),
             Container(

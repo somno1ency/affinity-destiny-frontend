@@ -18,5 +18,9 @@
     "login_passwordTips": "密码登录",
     "login_phone": "手机",
     "login_password": "密码",
-    "login_passwordHereTips": "您的密码..."
+    "login_passwordHereTips": "您的密码...",
+    "chat_startGroupChat": "发起群聊",
+    "chat_addFriend": "添加好友",
+    "chat_unreadCountTips": "[未读{count}条] ",
+    "search_placeholder": "搜索"
 }

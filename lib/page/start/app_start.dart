@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../shared/constant.dart';
+
 class AppStartPage extends StatelessWidget {
   const AppStartPage({super.key});
 
@@ -51,7 +53,9 @@ class AppStartPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, routerRegisterStart);
+          },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(
                 const BorderSide(color: Colors.white)),
@@ -67,7 +71,9 @@ class AppStartPage extends StatelessWidget {
           ),
         ),
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, routerLoginByPhone);
+          },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(
                 const BorderSide(color: Colors.white)),

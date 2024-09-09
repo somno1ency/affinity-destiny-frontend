@@ -17,7 +17,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: Theme.of(context)
             .primaryTextTheme
-            .labelMedium!
+            .titleLarge!
             .copyWith(color: Colors.white),
       ),
       actions: actions,

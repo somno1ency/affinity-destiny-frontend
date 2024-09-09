@@ -10,10 +10,14 @@ import 'page/start/register_code.dart';
 import 'page/start/login_phone.dart';
 import 'page/start/login_code.dart';
 import 'page/start/login_password.dart';
+import 'page/chat/chat.dart';
 
 part 'shared/router.dart';
 
 void main() {
+  // 全屏模式
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());
 }
 
@@ -45,24 +49,29 @@ class MyApp extends StatelessWidget {
           titleLarge: TextStyle(
             fontSize: 16,
             fontFamily: 'Consolas',
+            height: 1,
           ),
           labelLarge: TextStyle(
             fontFamily: 'Consolas',
             fontSize: 28,
+            height: 1,
           ),
           labelMedium: TextStyle(
             fontFamily: 'Consolas',
             fontSize: 12,
+            height: 1,
           ),
           labelSmall: TextStyle(
             fontFamily: 'Consolas',
             fontSize: 10,
+            height: 1,
           ),
         ),
         textTheme: const TextTheme(
           labelMedium: TextStyle(
             fontFamily: 'Consolas',
             fontSize: 24,
+            height: 1,
           ),
         ),
         appBarTheme: AppBarTheme(
@@ -82,7 +91,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: routeMap,
-      initialRoute: appLogin == true ? routerMain : routerStart,
+      initialRoute: appLogin == true ? routerStart : routerStart,
     );
   }
 }

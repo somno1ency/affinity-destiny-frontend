@@ -18,5 +18,9 @@
     "login_passwordTips": "Login by password",
     "login_phone": "Phone",
     "login_password": "Password",
-    "login_passwordHereTips": "your password here..."
+    "login_passwordHereTips": "your password here...",
+    "chat_startGroupChat": "Create Group Chat",
+    "chat_addFriend": "Add Friend",
+    "chat_unreadCountTips": "[Unread{count}] ",
+    "search_placeholder": "Search"
 }

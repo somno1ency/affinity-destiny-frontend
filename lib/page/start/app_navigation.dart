@@ -54,10 +54,9 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
         activeIcon: Ionicons.person,
       ),
     ];
-
     return Column(
       children: [
-        Expanded(child: _buildContent()),
+        Expanded(child: _buildContent(context)),
         AppBottomBar(
           currentIndex: _index,
           callback: _onChangePage,
@@ -67,15 +66,15 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return PageView(
       controller: _controller,
-      children: const [
-        ChatListPage(title: '单聊'),
-        ChatListPage(title: '群聊'),
-        ChatListPage(title: '联系人'),
-        ChatListPage(title: '发现'),
-        ChatListPage(title: '账户'),
+      children: [
+        ChatListPage(title: AppLocalizations.of(context)!.navMenu_singleChat),
+        ChatListPage(title: AppLocalizations.of(context)!.navMenu_groupChat),
+        ChatListPage(title: AppLocalizations.of(context)!.navMenu_contact),
+        ChatListPage(title: AppLocalizations.of(context)!.navMenu_discovery),
+        ChatListPage(title: AppLocalizations.of(context)!.navMenu_account),
       ],
     );
   }
