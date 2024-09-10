@@ -46,9 +46,14 @@ class MyApp extends StatelessWidget {
         ),
         primaryColor: const Color.fromARGB(255, 164, 147, 255),
         primaryTextTheme: const TextTheme(
-          titleLarge: TextStyle(
+          titleSmall: TextStyle(
             fontSize: 16,
             fontFamily: 'Consolas',
+            height: 1,
+          ),
+          bodyMedium: TextStyle(
+            fontFamily: 'Consolas',
+            fontSize: 25,
             height: 1,
           ),
           labelLarge: TextStyle(
@@ -91,7 +96,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: routeMap,
-      initialRoute: appLogin == true ? routerStart : routerStart,
+      initialRoute: appLogin == true ? routerMain : routerStart,
     );
   }
 }

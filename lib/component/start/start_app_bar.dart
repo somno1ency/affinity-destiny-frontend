@@ -14,18 +14,20 @@ class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: Text(
         title,
         style: Theme.of(context)
             .primaryTextTheme
-            .labelMedium!
+            .titleSmall!
             .copyWith(color: Colors.white),
       ),
       leading: IconButton(
         icon: const Icon(
           EvaIcons.arrowBack,
           color: Colors.white,
+          size: 24,
         ),
         onPressed: callback,
       ),

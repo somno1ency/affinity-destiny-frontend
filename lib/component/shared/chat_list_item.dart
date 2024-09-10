@@ -2,25 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../model/chat/chat_list_item_info.dart';
+
 class ChatListItem extends StatelessWidget {
-  final String avatar;
-  final String name;
-  final String msg;
-  final int unreadCount;
-  final bool isDisturb;
-  final String time;
+  final ChatListItemInfo chatListItemInfo;
   final VoidCallback callback;
 
   const ChatListItem({
     super.key,
-    required this.avatar,
-    required this.name,
-    required this.msg,
-    required this.time,
+    required this.chatListItemInfo,
     required this.callback,
-    this.isDisturb = false,
-    this.unreadCount = 0,
   });
+
+  IconData get icon => chatListItemInfo.isDisturb
+      ? EvaIcons.bellOffOutline
+      : EvaIcons.bellOutline;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +37,7 @@ class ChatListItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            _buildAvatar(),
+            _buildAvatar(context),
             const SizedBox(width: 10),
             Expanded(
               child: Column(
@@ -59,11 +55,27 @@ class ChatListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildAvatar() {
-    return CircleAvatar(
-      radius: 30,
-      backgroundImage: AssetImage(avatar),
-    );
+  Widget _buildAvatar(BuildContext context) {
+    Widget avatar;
+    if (chatListItemInfo.avatar != null) {
+      avatar = CircleAvatar(
+        radius: 30,
+        backgroundImage: AssetImage(chatListItemInfo.avatar!),
+      );
+    } else {
+      avatar = CircleAvatar(
+        radius: 30,
+        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
+        child: Text(
+          chatListItemInfo.name!.substring(0, 1),
+          style: Theme.of(context).primaryTextTheme.bodyMedium!.copyWith(
+                color: Colors.grey,
+              ),
+        ),
+      );
+    }
+
+    return avatar;
   }
 
   Widget _buildName(BuildContext context) {
@@ -71,35 +83,39 @@ class ChatListItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          name,
-          style: Theme.of(context).primaryTextTheme.titleLarge!.copyWith(
+          chatListItemInfo.name,
+          style: Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
               color: Theme.of(context).primaryColor.withOpacity(0.9),
               fontWeight: FontWeight.bold),
         ),
-        Text(
-          time,
-          style: Theme.of(context).primaryTextTheme.labelSmall!.copyWith(
-                color: Theme.of(context).primaryColor.withOpacity(0.7),
-              ),
-        ),
+        chatListItemInfo.lastMsgTime != null
+            ? Text(
+                chatListItemInfo.lastMsgTime!,
+                style: Theme.of(context).primaryTextTheme.labelSmall!.copyWith(
+                      color: Theme.of(context).primaryColor.withOpacity(0.7),
+                    ),
+              )
+            : const Text('')
       ],
     );
   }
 
   Widget _buildMsg(BuildContext context) {
-    String currentMsg = unreadCount >= 10
-        ? AppLocalizations.of(context)!.chat_unreadCountTips(unreadCount) + msg
-        : msg;
-    IconData icon = isDisturb ? EvaIcons.bellOffOutline : EvaIcons.bellOutline;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          currentMsg,
-          style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                color: Theme.of(context).primaryColor.withOpacity(0.8),
-              ),
-        ),
+        chatListItemInfo.lastMsg != null
+            ? Text(
+                chatListItemInfo.unreadCount >= 10
+                    ? AppLocalizations.of(context)!.chat_unreadCountTips(
+                            chatListItemInfo.unreadCount) +
+                        chatListItemInfo.lastMsg!
+                    : chatListItemInfo.lastMsg!,
+                style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
+                      color: Theme.of(context).primaryColor.withOpacity(0.8),
+                    ),
+              )
+            : const Text(''),
         Icon(
           icon,
           size: 14,

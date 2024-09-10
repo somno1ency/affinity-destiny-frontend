@@ -22,9 +22,10 @@ class RadiusInput extends StatelessWidget {
     required this.fontSize,
   });
 
+  double get verticalPadding => (height - fontSize - 2) / 2;
+
   @override
   Widget build(BuildContext context) {
-    double verticalPadding = (height - fontSize - 2) / 2;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

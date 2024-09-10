@@ -9,8 +9,8 @@ import 'dart:math';
 import '../../component/shared/app_chat_bar.dart';
 import '../../component/shared/custom_input.dart';
 import '../../component/shared/chat_list_item.dart';
-
 import '../../model/user/user.dart';
+import '../../model/chat/chat_list_item_info.dart';
 import '../../shared/constant.dart';
 
 class ChatListPage extends StatefulWidget {
@@ -23,6 +23,15 @@ class ChatListPage extends StatefulWidget {
 }
 
 class _ChatListPageState extends State<ChatListPage> {
+  final Random _random = Random();
+  User get currentUser => const User(
+        id: 1,
+        mobile: '19918900255',
+        avatar: '/assets/images/avatar/avatar_001.webp',
+        sex: 1,
+        nickname: '叶落无痕',
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +41,7 @@ class _ChatListPageState extends State<ChatListPage> {
           IconButton(
             icon: const Icon(EvaIcons.plusCircleOutline),
             color: Colors.white,
+            iconSize: 24,
             onPressed: () {
               _showAddMenu(context);
             },
@@ -43,37 +53,16 @@ class _ChatListPageState extends State<ChatListPage> {
   }
 
   Widget _buildBody(BuildContext context) {
-    Random _random = Random();
-    List<ChatListItem> fakeItems = [];
+    List<ChatListItemInfo> fakeInfoItems = [];
     for (int i = 0; i < 100; i++) {
-      User currentUser = const User(
-        id: 1,
-        mobile: '19918900255',
-        avatar: '/assets/images/avatar_001.webp',
-        sex: 1,
-        nickname: '叶落无痕',
-      );
-      User targetUser = User(
-        id: i,
-        mobile: '13874315555',
-        avatar: '/assets/images/avatar_002.webp',
-        sex: 2,
-        nickname: '听风有声',
-      );
-      fakeItems.add(
-        ChatListItem(
-          avatar: 'assets/images/avatar_001.webp',
+      fakeInfoItems.add(
+        ChatListItemInfo(
+          avatar: 'assets/images/avatar/avatar_001.webp',
           name: WordPair.random().asPascalCase,
-          msg: 'This is my las msg $i...',
+          lastMsg: 'This is my las msg $i...',
           unreadCount: _random.nextInt(10) * 10,
-          time: 'Yesterday $i',
+          lastMsgTime: 'Yesterday $i',
           isDisturb: i % 2 == 0,
-          callback: () {
-            Navigator.pushNamed(context, routerSingleChat, arguments: {
-              'currentUser': currentUser,
-              'targetUser': targetUser,
-            });
-          },
         ),
       );
     }
@@ -92,16 +81,27 @@ class _ChatListPageState extends State<ChatListPage> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: fakeItems.length,
+            itemCount: fakeInfoItems.length,
             itemBuilder: (context, index) {
               return ChatListItem(
-                avatar: fakeItems[index].avatar,
-                name: fakeItems[index].name,
-                msg: fakeItems[index].msg,
-                unreadCount: fakeItems[index].unreadCount,
-                time: fakeItems[index].time,
-                isDisturb: fakeItems[index].isDisturb,
-                callback: fakeItems[index].callback,
+                chatListItemInfo: fakeInfoItems[index],
+                callback: () {
+                  User targetUser = User(
+                    id: index,
+                    mobile: '13874315555',
+                    avatar: fakeInfoItems[index].avatar ?? '',
+                    sex: 2,
+                    nickname: fakeInfoItems[index].name,
+                  );
+                  Navigator.pushNamed(
+                    context,
+                    routerSingleChat,
+                    arguments: {
+                      'currentUser': currentUser,
+                      'targetUser': targetUser,
+                    },
+                  );
+                },
               );
             },
           ),
@@ -138,8 +138,12 @@ class _ChatListPageState extends State<ChatListPage> {
     );
   }
 
-  PopupMenuItem _buildMenuItem(BuildContext context, String label,
-      IconData icon, VoidCallback callback) {
+  PopupMenuItem _buildMenuItem(
+    BuildContext context,
+    String label,
+    IconData icon,
+    VoidCallback callback,
+  ) {
     return PopupMenuItem(
       onTap: callback,
       child: Row(

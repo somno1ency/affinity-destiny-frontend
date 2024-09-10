@@ -54,6 +54,7 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
         activeIcon: Ionicons.person,
       ),
     ];
+
     return Column(
       children: [
         Expanded(child: _buildContent(context)),

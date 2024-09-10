@@ -20,10 +20,12 @@ class CustomInput extends StatelessWidget {
     this.isCenter = false,
   });
 
+  double get horizontalPadding => isCenter ? 0 : 10;
+
+  double get verticalPadding => (height - fontSize - 2) / 2;
+
   @override
   Widget build(BuildContext context) {
-    double horizontalPadding = isCenter ? 0 : 10;
-    double verticalPadding = (height - fontSize - 2) / 2;
     // TextField文字的垂直居中使用其textAlignVertical无用,这里的使用的方式是计算,这种方案比较完美,思路是:
     // 目前场景的预置数值为:
     // 1.文字大小为12,Container高度40,则设置decoration的contentPadding的vertical属性为(40 - 12 - 2) / 2 = 13即可完美垂直居中

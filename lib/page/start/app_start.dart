@@ -21,6 +21,7 @@ class AppStartPage extends StatelessWidget {
           child: Column(
             children: [
               AppBar(
+                automaticallyImplyLeading: false,
                 backgroundColor: Colors.transparent,
                 elevation: 0,
               ),
@@ -66,7 +67,7 @@ class AppStartPage extends StatelessWidget {
             AppLocalizations.of(context)!.start_signUp,
             style: Theme.of(context)
                 .primaryTextTheme
-                .labelMedium!
+                .titleSmall!
                 .copyWith(color: Colors.white),
           ),
         ),
@@ -84,7 +85,7 @@ class AppStartPage extends StatelessWidget {
             AppLocalizations.of(context)!.start_signIn,
             style: Theme.of(context)
                 .primaryTextTheme
-                .labelMedium!
+                .titleSmall!
                 .copyWith(color: Colors.white),
           ),
         ),

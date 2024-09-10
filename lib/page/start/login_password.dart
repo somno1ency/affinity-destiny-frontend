@@ -43,7 +43,7 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
 
   @override
   Widget build(BuildContext context) {
-    double stepPadding = (MediaQuery.of(context).size.width - 300) * 0.5 - 10;
+    double stepPadding = (MediaQuery.of(context).size.width - 300) * 0.5 - 12;
     stepPadding = stepPadding > 0 ? stepPadding : 0;
 
     return Scaffold(
@@ -144,7 +144,10 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               ),
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_phoneTips,
+                tipsSize:
+                    Theme.of(context).primaryTextTheme.titleSmall!.fontSize,
                 icon: EvaIcons.arrowCircleRight,
+                iconSize: 24,
                 callback: () {
                   Navigator.of(context).pushNamed(routerLoginByPhone);
                 },
