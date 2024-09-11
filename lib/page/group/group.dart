@@ -9,20 +9,21 @@ import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/chat_item.dart';
 import '../../component/chat/chat_input_bar.dart';
 import '../../model/orm/user.dart';
+import '../../model/orm/group.dart';
 import '../../model/component/message_type_enum.dart';
 import '../../model/component/chat_msg.dart';
 
-class ChatPage extends StatelessWidget {
+class GroupPage extends StatelessWidget {
   // 当前登录用户信息,以后从token中获取
   final User? currentUser;
-  // 聊天目标用户信息
-  final User? targetUser;
+  // 聊天目标群信息
+  final Group? targetGroup;
 
   // 不将成员变量定义为required是因为,在router中提前定义了路由,如果required,则那个时机需要进行赋值,但那个时机并不知道将来的动态参数值
-  const ChatPage({
+  const GroupPage({
     super.key,
     this.currentUser,
-    this.targetUser,
+    this.targetGroup,
   });
 
   @override
@@ -30,11 +31,11 @@ class ChatPage extends StatelessWidget {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     final currentUser = arguments?['currentUser'];
-    final targetUser = arguments?['targetUser'];
+    final targetGroup = arguments?['targetGroup'];
 
     return Scaffold(
       appBar: AppChatBar(
-        title: targetUser?.nickname,
+        title: targetGroup.name,
         icon: EvaIcons.bellOffOutline,
         leading: IconButton(
           icon: const Icon(
@@ -108,7 +109,7 @@ class ChatPage extends StatelessWidget {
             type: type,
             avatar: 'assets/images/avatar/avatar_00$identity.webp',
           ),
-          isShowName: false,
+          isShowName: true,
         ),
       );
     });

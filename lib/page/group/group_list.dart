@@ -10,19 +10,20 @@ import '../../component/chat/app_chat_bar.dart';
 import '../../component/shared/custom_input.dart';
 import '../../component/chat/chat_list_item.dart';
 import '../../model/orm/user.dart';
+import '../../model/orm/group.dart';
 import '../../model/component/chat_list_item_info.dart';
 import '../../shared/constant.dart';
 
-class ChatListPage extends StatefulWidget {
+class GroupListPage extends StatefulWidget {
   final String title;
 
-  const ChatListPage({super.key, required this.title});
+  const GroupListPage({super.key, required this.title});
 
   @override
-  State<StatefulWidget> createState() => _ChatListPageState();
+  State<StatefulWidget> createState() => _GroupListPageState();
 }
 
-class _ChatListPageState extends State<ChatListPage> {
+class _GroupListPageState extends State<GroupListPage> {
   final Random _random = Random();
   User get currentUser => const User(
         id: 1,
@@ -58,9 +59,13 @@ class _ChatListPageState extends State<ChatListPage> {
       int identity = _random.nextInt(3) + 1;
       fakeInfoItems.add(
         ChatListItemInfo(
+          // TODO: 如果为空,则取当前群的owner对应的头像+任意三个成员的头像形成一张新的图片,只第一次计算一计,以后固定到数据库的icon中,先不处理
+          // avatar: identity > 0
+          // ? 'assets/images/avatar/avatar_00$identity.webp'
+          //     : '',
           avatar: 'assets/images/avatar/avatar_00$identity.webp',
-          name: WordPair.random().asPascalCase,
-          lastMsg: 'This is my last msg $i...',
+          name: '${WordPair.random().asPascalCase}Group',
+          lastMsg: 'This is group last msg $i...',
           unreadCount: _random.nextInt(10) * 10,
           lastMsgTime: 'Yesterday $i',
           isDisturb: i % 2 == 0,
@@ -84,22 +89,28 @@ class _ChatListPageState extends State<ChatListPage> {
           child: ListView.builder(
             itemCount: fakeInfoItems.length,
             itemBuilder: (context, index) {
+              int identity = _random.nextInt(3) + 1;
               return ChatListItem(
                 chatListItemInfo: fakeInfoItems[index],
                 callback: () {
-                  User targetUser = User(
+                  Group targetGroup = Group(
                     id: index,
-                    mobile: '13874315555',
-                    avatar: fakeInfoItems[index].avatar ?? '',
-                    sex: 2,
-                    nickname: fakeInfoItems[index].name,
+                    ownerId: 1,
+                    groupId: 'xxx',
+                    name: WordPair.random().asPascalCase,
+                    category: _random.nextInt(10),
+                    // 在群聊界面详情并不需要显示群头像,所以这个字段传过去没有用处
+                    icon: identity > 0
+                        ? 'assets/images/avatar/avatar_00$identity.webp'
+                        : '',
+                    memo: WordPair.random().asSnakeCase,
                   );
                   Navigator.pushNamed(
                     context,
-                    routerSingleChat,
+                    routerGroupChat,
                     arguments: {
                       'currentUser': currentUser,
-                      'targetUser': targetUser,
+                      'targetGroup': targetGroup,
                     },
                   );
                 },

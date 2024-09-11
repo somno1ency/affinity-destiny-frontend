@@ -13,6 +13,7 @@ Map<String, WidgetBuilder> get routeMap => {
       routerSingleDetail: (context) => const AppNavigationPage(),
       routerSingleSearch: (context) => const AppNavigationPage(),
       routerGroupChatList: (context) => const AppNavigationPage(index: 1),
+      routerGroupChat: (context) => const GroupPage(),
       routerGroupDetail: (context) => const AppNavigationPage(),
       routerGroupMemberDetail: (context) => const AppNavigationPage(),
       routerContact: (context) => const AppNavigationPage(index: 2),

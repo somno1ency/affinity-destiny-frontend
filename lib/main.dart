@@ -11,6 +11,7 @@ import 'page/start/login_phone.dart';
 import 'page/start/login_code.dart';
 import 'page/start/login_password.dart';
 import 'page/chat/chat.dart';
+import 'page/group/group.dart';
 
 part 'shared/router.dart';
 
@@ -54,6 +55,11 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(
             fontFamily: 'Consolas',
             fontSize: 25,
+            height: 1,
+          ),
+          bodySmall: TextStyle(
+            fontFamily: 'Consolas',
+            fontSize: 14,
             height: 1,
           ),
           labelLarge: TextStyle(

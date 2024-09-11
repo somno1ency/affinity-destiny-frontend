@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../model/chat/chat_list_item_info.dart';
+import '../../model/component/chat_list_item_info.dart';
 
 class ChatListItem extends StatelessWidget {
   final ChatListItemInfo chatListItemInfo;

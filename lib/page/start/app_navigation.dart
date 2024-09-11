@@ -3,8 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../../component/shared/app_bottom_bar.dart';
-import '../../model/shared/navigation_menu.dart';
+import '../../model/component/navigation_menu.dart';
 import '../../page/chat/chat_list.dart';
+import '../../page/group/group_list.dart';
+import '../../page/contact/contact_user.dart';
 
 class AppNavigationPage extends StatefulWidget {
   final int index;
@@ -72,8 +74,8 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
       controller: _controller,
       children: [
         ChatListPage(title: AppLocalizations.of(context)!.navMenu_singleChat),
-        ChatListPage(title: AppLocalizations.of(context)!.navMenu_groupChat),
-        ChatListPage(title: AppLocalizations.of(context)!.navMenu_contact),
+        GroupListPage(title: AppLocalizations.of(context)!.navMenu_groupChat),
+        ContactUserPage(title: AppLocalizations.of(context)!.navMenu_contact),
         ChatListPage(title: AppLocalizations.of(context)!.navMenu_discovery),
         ChatListPage(title: AppLocalizations.of(context)!.navMenu_account),
       ],
