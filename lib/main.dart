@@ -16,7 +16,7 @@ import 'page/group/group.dart';
 part 'shared/router.dart';
 
 void main() {
-  // 全屏模式
+  // full screen mode
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());

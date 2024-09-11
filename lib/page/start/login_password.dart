@@ -65,7 +65,7 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               radius: 40,
               fontSize:
                   Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
-              // 以下两种方式都可以实现垂直居中(Center/Column),不过Center简单一点
+              // below two way can make vertical center worked, but center maybe simpler
               // leftPart: Center(
               //   child: Text(
               //     AppLocalizations.of(context)!.login_phone,

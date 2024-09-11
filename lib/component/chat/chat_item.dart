@@ -65,7 +65,7 @@ class ChatItem extends StatelessWidget {
     );
   }
 
-  // 这是微信样式
+  // wechat style
   // Widget _buildAvatar() {
   //   return Container(
   //     height: 40,

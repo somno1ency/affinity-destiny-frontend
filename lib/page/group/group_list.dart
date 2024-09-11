@@ -59,7 +59,7 @@ class _GroupListPageState extends State<GroupListPage> {
       int identity = _random.nextInt(3) + 1;
       fakeInfoItems.add(
         ChatListItemInfo(
-          // TODO: 如果为空,则取当前群的owner对应的头像+任意三个成员的头像形成一张新的图片,只第一次计算一计,以后固定到数据库的icon中,先不处理
+          // TODO: if empty, then get current group's owner's avatar + random 3 members' avatar, and save to database
           // avatar: identity > 0
           // ? 'assets/images/avatar/avatar_00$identity.webp'
           //     : '',
@@ -97,7 +97,7 @@ class _GroupListPageState extends State<GroupListPage> {
                     groupId: 'xxx',
                     name: WordPair.random().asPascalCase,
                     category: _random.nextInt(10),
-                    // 在群聊界面详情并不需要显示群头像,所以这个字段传过去没有用处
+                    // not need to display the icon in chat detail, so this field is not used
                     icon: identity > 0
                         ? 'assets/images/avatar/avatar_00$identity.webp'
                         : '',

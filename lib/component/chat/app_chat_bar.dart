@@ -49,7 +49,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
     }
 
     return AppBar(
-      // 没有设置leading时,禁止自动生成左侧箭头,生成的黑色,没有特意定义效果,与主题不搭配,尽量都手动控制
+      // if not set leading, abandon to automatic generate the left arrow(will display as black arrow)
       automaticallyImplyLeading: false,
       leading: leading,
       title: customTitle,

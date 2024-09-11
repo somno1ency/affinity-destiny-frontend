@@ -5,8 +5,9 @@ class ChatMsg {
   final String? name;
   final String msg;
   final MessageType type;
-  // 虽然时间肯定是消息的一条属性,但是在聊天界面中每条消息展示时间却不友好,像微信类似的处理比较合适,对于时间有适当的聚合,所以时间也作为一条单
-  // 独的消息发送,时间内容放在msg中,只是发送的时机需要再考虑,故此处时间字段注释掉(避免抓包抓到,反正也不在前端显示)
+  // although time must be an attr of a msg, but in the user face, not need to display one by one, just like wechat, will
+  // show the time by appropriate aggregation, so time will be a single msg, the real time words will in the content,
+  // we need to consider the moment when the msg is sent
   // final String time;
 
   const ChatMsg({

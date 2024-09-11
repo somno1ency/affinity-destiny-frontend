@@ -44,7 +44,7 @@ class ChatInputBar extends StatelessWidget {
                 controller: controller,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
-                  // TODO: 这里为何不遵循component/shared/custom_input.dart关于垂直居中的方案了,需要再考虑
+                  // TODO: why not conform component/shared/custom_input.dart on vertical center mechanism?
                   contentPadding: EdgeInsets.only(
                     left: 12,
                     right: 12,

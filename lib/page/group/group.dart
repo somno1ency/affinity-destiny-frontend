@@ -15,12 +15,13 @@ import '../../model/component/chat_msg.dart';
 import '../../shared/constant.dart';
 
 class GroupPage extends StatelessWidget {
-  // 当前登录用户信息,以后从token中获取
+  // the login user info, will retrieve from token instead
   final User? currentUser;
-  // 聊天目标群信息
+  // chat target group info
   final Group? targetGroup;
 
-  // 不将成员变量定义为required是因为,在router中提前定义了路由,如果required,则那个时机需要进行赋值,但那个时机并不知道将来的动态参数值
+  // not required is that we must definition the router first in router.dart, but at that moment, we don't know the future
+  // dynamic parameter value
   const GroupPage({
     super.key,
     this.currentUser,
