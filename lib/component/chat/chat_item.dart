@@ -3,6 +3,7 @@ import 'package:wrapper/wrapper.dart';
 
 import '../../model/component/chat_msg.dart';
 import '../../model/component/message_type_enum.dart';
+import '../../shared/constant.dart';
 
 class ChatItem extends StatelessWidget {
   final ChatMsg chatMsg;
@@ -23,7 +24,7 @@ class ChatItem extends StatelessWidget {
   EdgeInsets get iconPadding =>
       isLeft ? const EdgeInsets.only(right: 5) : const EdgeInsets.only(left: 5);
 
-  Color get panelColor => isLeft ? Colors.white : const Color(0xff96EC6D);
+  Color get panelColor => isLeft ? colorYourMsg : colorMyMsg;
 
   TextDirection get textDirection =>
       isLeft ? TextDirection.ltr : TextDirection.rtl;
@@ -58,7 +59,7 @@ class ChatItem extends StatelessWidget {
           style: Theme.of(context)
               .primaryTextTheme
               .labelMedium!
-              .copyWith(color: const Color(0xff969696)),
+              .copyWith(color: colorChatSub),
         ),
       ),
     );
@@ -89,13 +90,14 @@ class ChatItem extends StatelessWidget {
           )
         : CircleAvatar(
             radius: 25,
-            backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
+            backgroundColor:
+                Theme.of(context).primaryColor.withOpacity(opacity5),
             child: Text(
               chatMsg.name == null ? '' : chatMsg.name!.substring(0, 1),
               style: Theme.of(context)
                   .primaryTextTheme
                   .bodyMedium!
-                  .copyWith(color: Colors.grey),
+                  .copyWith(color: colorGrey),
             ),
           );
   }
@@ -114,7 +116,7 @@ class ChatItem extends StatelessWidget {
                 style: Theme.of(context)
                     .primaryTextTheme
                     .labelMedium!
-                    .copyWith(color: const Color(0xff969696)),
+                    .copyWith(color: colorChatSub),
               ),
             ),
           Padding(
@@ -124,7 +126,7 @@ class ChatItem extends StatelessWidget {
               spineType: spineType,
               elevation: 0.5,
               spineHeight: 6,
-              shadowColor: Colors.grey.withOpacity(0.3),
+              shadowColor: colorGrey.withOpacity(opacity3),
               offset: 12,
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -136,7 +138,7 @@ class ChatItem extends StatelessWidget {
                 style: Theme.of(context)
                     .primaryTextTheme
                     .bodySmall!
-                    .copyWith(color: Colors.black),
+                    .copyWith(color: colorBlack),
               ),
             ),
           ),

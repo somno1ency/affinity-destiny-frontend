@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/constant.dart';
+
 class RadiusInput extends StatelessWidget {
   final double sideWidth;
   final double bodyWidth;
@@ -62,13 +64,13 @@ class RadiusInput extends StatelessWidget {
                   ),
                   border: InputBorder.none,
                   hintText: hintText,
-                  hintStyle: Theme.of(context)
-                      .primaryTextTheme
-                      .labelMedium!
-                      .copyWith(
-                        color: Theme.of(context).primaryColor.withOpacity(0.5),
-                        height: 1,
-                      ),
+                  hintStyle:
+                      Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
+                            color: Theme.of(context)
+                                .primaryColor
+                                .withOpacity(opacity5),
+                            height: 1,
+                          ),
                 ),
                 style: Theme.of(context)
                     .primaryTextTheme

@@ -40,7 +40,7 @@ class _ChatListPageState extends State<ChatListPage> {
         actions: [
           IconButton(
             icon: const Icon(EvaIcons.plusCircleOutline),
-            color: Colors.white,
+            color: colorWhite,
             iconSize: 24,
             onPressed: () {
               _showAddMenu(context);
@@ -73,10 +73,8 @@ class _ChatListPageState extends State<ChatListPage> {
         CustomInput(
           color: Theme.of(context).primaryColor,
           hintText: AppLocalizations.of(context)!.search_placeholder,
-          hintStyle: Theme.of(context)
-              .primaryTextTheme
-              .labelMedium!
-              .copyWith(color: Theme.of(context).primaryColor.withOpacity(0.5)),
+          hintStyle: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
+              color: Theme.of(context).primaryColor.withOpacity(opacity5)),
           fontSize: 12,
           isCenter: false,
         ),
@@ -120,7 +118,7 @@ class _ChatListPageState extends State<ChatListPage> {
     showMenu(
       context: context,
       elevation: 0,
-      shadowColor: Colors.transparent,
+      shadowColor: colorTransparent,
       position: RelativeRect.fromLTRB(x, y, 0, 0),
       items: [
         _buildMenuItem(

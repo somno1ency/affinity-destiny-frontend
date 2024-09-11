@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import '../../shared/constant.dart';
+
 class ChatInputBar extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback callback;
@@ -19,7 +21,7 @@ class ChatInputBar extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-              color: Theme.of(context).primaryColor.withOpacity(0.4)),
+              color: Theme.of(context).primaryColor.withOpacity(opacity4)),
         ),
       ),
       padding: const EdgeInsets.all(4),
@@ -33,7 +35,7 @@ class ChatInputBar extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Theme.of(context).primaryColor.withOpacity(0.4),
+                  color: Theme.of(context).primaryColor.withOpacity(opacity4),
                 ),
               ),
               child: TextField(

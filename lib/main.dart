@@ -41,11 +41,12 @@ class MyApp extends StatelessWidget {
           selectedItemColor: Theme.of(context).primaryColor,
           showSelectedLabels: true,
           showUnselectedLabels: true,
-          backgroundColor: Colors.white,
+          backgroundColor: colorWhite,
           elevation: 3,
           type: BottomNavigationBarType.fixed,
         ),
-        primaryColor: const Color.fromARGB(255, 164, 147, 255),
+        // primaryColor: const Color(0xFFA493FF),
+        primaryColor: colorTheme,
         primaryTextTheme: const TextTheme(
           titleSmall: TextStyle(
             fontSize: 16,
@@ -90,15 +91,15 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarIconBrightness: Brightness.dark,
-            statusBarColor: Colors.transparent,
+            statusBarColor: colorTransparent,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: colorWhite,
           titleTextStyle:
               Theme.of(context).primaryTextTheme.titleLarge!.copyWith(
-                    color: Colors.black,
+                    color: colorBlack,
                     fontWeight: FontWeight.bold,
                   ),
-          iconTheme: const IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(color: colorBlack),
         ),
       ),
       routes: routeMap,

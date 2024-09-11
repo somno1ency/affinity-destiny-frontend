@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/constant.dart';
+
 class StartBodySkeleton extends StatelessWidget {
   final String tips;
   final Widget body;
@@ -30,9 +32,9 @@ class StartBodySkeleton extends StatelessWidget {
                   topLeft: Radius.circular(50),
                   topRight: Radius.circular(50),
                 ),
-                color: Colors.white,
+                color: colorWhite,
               ),
-              // color: Colors.white,
+              // color: colorWhite,
               child: Column(
                 children: [
                   Expanded(

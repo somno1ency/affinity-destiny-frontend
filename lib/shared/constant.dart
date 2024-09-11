@@ -1,4 +1,6 @@
 // 1.app level
+import 'package:flutter/material.dart';
+
 const bool appLogin = true;
 
 // 2.router named definition
@@ -21,3 +23,27 @@ const String routerContact = 'contact';
 const String routerDiscovery = 'discovery';
 const String routerAccount = 'account';
 const String routerSetBackground = 'setBackGround';
+
+// 3.color definition
+const Color colorTheme = Colors.teal;
+const Color colorMain = Color(0xFF333333);
+const Color colorSub1 = Color(0xFF666666);
+const Color colorSub2 = Color(0xFF999999);
+const Color colorMyMsg = Color(0xff96EC6D);
+const Color colorYourMsg = Colors.white;
+const Color colorChatSub = Color(0xff969696);
+const Color colorWhite = Colors.white;
+const Color colorBlack = Colors.black;
+const Color colorGrey = Colors.grey;
+const Color colorTransparent = Colors.transparent;
+
+// 3.opacity definition
+const double opacity1 = 0.1;
+const double opacity2 = 0.2;
+const double opacity3 = 0.3;
+const double opacity4 = 0.4;
+const double opacity5 = 0.5;
+const double opacity6 = 0.6;
+const double opacity7 = 0.7;
+const double opacity8 = 0.8;
+const double opacity9 = 0.9;

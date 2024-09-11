@@ -1,9 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:english_words/english_words.dart';
+
+import 'dart:math';
 
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/chat_item.dart';
@@ -11,6 +11,7 @@ import '../../component/chat/chat_input_bar.dart';
 import '../../model/orm/user.dart';
 import '../../model/component/message_type_enum.dart';
 import '../../model/component/chat_msg.dart';
+import '../../shared/constant.dart';
 
 class ChatPage extends StatelessWidget {
   // 当前登录用户信息,以后从token中获取
@@ -41,7 +42,7 @@ class ChatPage extends StatelessWidget {
             Ionicons.arrow_undo_outline,
             size: 24,
           ),
-          color: Colors.white,
+          color: colorWhite,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -52,7 +53,7 @@ class ChatPage extends StatelessWidget {
               EvaIcons.moreHorizontalOutline,
               size: 24,
             ),
-            color: Colors.white,
+            color: colorWhite,
             onPressed: () {
               Navigator.of(context).pop();
             },

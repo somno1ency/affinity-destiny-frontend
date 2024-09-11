@@ -1,9 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:english_words/english_words.dart';
+
+import 'dart:math';
 
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/chat_item.dart';
@@ -12,6 +12,7 @@ import '../../model/orm/user.dart';
 import '../../model/orm/group.dart';
 import '../../model/component/message_type_enum.dart';
 import '../../model/component/chat_msg.dart';
+import '../../shared/constant.dart';
 
 class GroupPage extends StatelessWidget {
   // 当前登录用户信息,以后从token中获取
@@ -42,7 +43,7 @@ class GroupPage extends StatelessWidget {
             Ionicons.arrow_undo_outline,
             size: 24,
           ),
-          color: Colors.white,
+          color: colorWhite,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -53,32 +54,28 @@ class GroupPage extends StatelessWidget {
               EvaIcons.moreHorizontalOutline,
               size: 24,
             ),
-            color: Colors.white,
+            color: colorWhite,
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
         ],
       ),
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: ListView(
-            children: _buildChatItems(),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              children: _buildChatItems(),
+            ),
           ),
-        ),
-        ChatInputBar(
-          controller: TextEditingController(),
-          callback: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
+          ChatInputBar(
+            controller: TextEditingController(),
+            callback: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
     );
   }
 

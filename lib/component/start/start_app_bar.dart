@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import '../../shared/constant.dart';
+
 class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback callback;
@@ -21,12 +23,12 @@ class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: Theme.of(context)
             .primaryTextTheme
             .titleSmall!
-            .copyWith(color: Colors.white),
+            .copyWith(color: colorWhite),
       ),
       leading: IconButton(
         icon: const Icon(
           EvaIcons.arrowBack,
-          color: Colors.white,
+          color: colorWhite,
           size: 24,
         ),
         onPressed: callback,

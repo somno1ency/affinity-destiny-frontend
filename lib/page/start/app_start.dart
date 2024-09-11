@@ -22,7 +22,7 @@ class AppStartPage extends StatelessWidget {
             children: [
               AppBar(
                 automaticallyImplyLeading: false,
-                backgroundColor: Colors.transparent,
+                backgroundColor: colorTransparent,
                 elevation: 0,
               ),
               const Spacer(flex: 2),
@@ -59,7 +59,7 @@ class AppStartPage extends StatelessWidget {
           },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(
-                const BorderSide(color: Colors.white)),
+                const BorderSide(color: colorWhite)),
             fixedSize: WidgetStateProperty.all<Size>(
                 Size(MediaQuery.of(context).size.width * 0.3, 40)),
           ),
@@ -68,7 +68,7 @@ class AppStartPage extends StatelessWidget {
             style: Theme.of(context)
                 .primaryTextTheme
                 .titleSmall!
-                .copyWith(color: Colors.white),
+                .copyWith(color: colorWhite),
           ),
         ),
         OutlinedButton(
@@ -77,7 +77,7 @@ class AppStartPage extends StatelessWidget {
           },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(
-                const BorderSide(color: Colors.white)),
+                const BorderSide(color: colorWhite)),
             fixedSize: WidgetStateProperty.all<Size>(
                 Size(MediaQuery.of(context).size.width * 0.3, 40)),
           ),
@@ -86,7 +86,7 @@ class AppStartPage extends StatelessWidget {
             style: Theme.of(context)
                 .primaryTextTheme
                 .titleSmall!
-                .copyWith(color: Colors.white),
+                .copyWith(color: colorWhite),
           ),
         ),
       ],
@@ -101,7 +101,7 @@ class AppStartPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.15,
           child: const Divider(
             thickness: 1.0,
-            color: Colors.white,
+            color: colorWhite,
           ),
         ),
         const SizedBox(width: 10),
@@ -110,14 +110,14 @@ class AppStartPage extends StatelessWidget {
           style: Theme.of(context)
               .primaryTextTheme
               .labelMedium!
-              .copyWith(color: Colors.white),
+              .copyWith(color: colorWhite),
         ),
         const SizedBox(width: 10),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.15,
           child: const Divider(
             thickness: 1.0,
-            color: Colors.white,
+            color: colorWhite,
           ),
         ),
       ],
@@ -130,7 +130,7 @@ class AppStartPage extends StatelessWidget {
       children: [
         Icon(
           Ionicons.aperture_outline,
-          color: Colors.white,
+          color: colorWhite,
           size: 40,
         ),
       ],
@@ -146,7 +146,7 @@ class AppStartPage extends StatelessWidget {
           icon: const Icon(
             Ionicons.checkmark_circle_outline,
           ),
-          color: Colors.white,
+          color: colorWhite,
           alignment: Alignment.centerRight,
           iconSize: 12,
           padding: const EdgeInsets.fromLTRB(0, 2, 1, 0),
@@ -156,7 +156,7 @@ class AppStartPage extends StatelessWidget {
           style: Theme.of(context)
               .primaryTextTheme
               .labelSmall!
-              .copyWith(color: Colors.white),
+              .copyWith(color: colorWhite),
         ),
       ],
     );

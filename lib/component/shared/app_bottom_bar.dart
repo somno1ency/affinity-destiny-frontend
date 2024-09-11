@@ -19,7 +19,8 @@ class AppBottomBar extends StatelessWidget {
     return BottomNavigationBar(
       onTap: callback,
       currentIndex: currentIndex,
-      iconSize: 22,
+      iconSize: 24,
+      fixedColor: Theme.of(context).primaryColor,
       items: menus.map(_buildItemByMenuMeta).toList(),
     );
   }

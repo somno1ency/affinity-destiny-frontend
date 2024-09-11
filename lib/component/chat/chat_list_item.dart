@@ -3,6 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../model/component/chat_list_item_info.dart';
+import '../../shared/constant.dart';
 
 class ChatListItem extends StatelessWidget {
   final ChatListItemInfo chatListItemInfo;
@@ -31,7 +32,7 @@ class ChatListItem extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Theme.of(context).primaryColor.withOpacity(0.1),
+              color: Theme.of(context).primaryColor.withOpacity(opacity1),
             ),
           ),
         ),
@@ -65,11 +66,11 @@ class ChatListItem extends StatelessWidget {
     } else {
       avatar = CircleAvatar(
         radius: 30,
-        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
+        backgroundColor: Theme.of(context).primaryColor.withOpacity(opacity5),
         child: Text(
-          chatListItemInfo.name!.substring(0, 1),
+          chatListItemInfo.name.substring(0, 1),
           style: Theme.of(context).primaryTextTheme.bodyMedium!.copyWith(
-                color: Colors.grey,
+                color: colorGrey,
               ),
         ),
       );
@@ -85,14 +86,17 @@ class ChatListItem extends StatelessWidget {
         Text(
           chatListItemInfo.name,
           style: Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
-              color: Theme.of(context).primaryColor.withOpacity(0.9),
-              fontWeight: FontWeight.bold),
+                // color: Theme.of(context).primaryColor.withOpacity(opacity9),
+                color: colorMain,
+                fontWeight: FontWeight.bold,
+              ),
         ),
         chatListItemInfo.lastMsgTime != null
             ? Text(
                 chatListItemInfo.lastMsgTime!,
                 style: Theme.of(context).primaryTextTheme.labelSmall!.copyWith(
-                      color: Theme.of(context).primaryColor.withOpacity(0.7),
+                      // color: Theme.of(context).primaryColor.withOpacity(opacity7),
+                      color: colorSub2,
                     ),
               )
             : const Text('')
@@ -112,14 +116,15 @@ class ChatListItem extends StatelessWidget {
                         chatListItemInfo.lastMsg!
                     : chatListItemInfo.lastMsg!,
                 style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                      color: Theme.of(context).primaryColor.withOpacity(0.8),
+                      // color: Theme.of(context).primaryColor.withOpacity(opacity8),
+                      color: colorSub2,
                     ),
               )
             : const Text(''),
         Icon(
           icon,
           size: 14,
-          color: Theme.of(context).primaryColor.withOpacity(0.7),
+          color: Theme.of(context).primaryColor,
         ),
       ],
     );
