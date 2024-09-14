@@ -22,5 +22,10 @@
     "chat_startGroupChat": "发起群聊",
     "chat_addFriend": "添加好友",
     "chat_unreadCountTips": "[未读{count}条] ",
-    "search_placeholder": "搜索"
+    "search_placeholder": "搜索",
+    "order_byCategory": "按分组",
+    "order_byAlphabet": "按字母",
+    "item_newFriend": "新的朋友",
+    "item_groupManager": "群管理",
+    "item_categoryManager": "分组管理"
 }

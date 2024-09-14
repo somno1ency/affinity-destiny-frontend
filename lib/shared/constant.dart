@@ -1,4 +1,4 @@
-// 1.app level
+// 1.app level definition
 import 'package:flutter/material.dart';
 
 const bool appLogin = true;
@@ -11,17 +11,12 @@ const String routerRegisterCode = 'registerCode';
 const String routerLoginByPhone = 'loginByPhone';
 const String routerLoginCode = 'loginCode';
 const String routerLoginByPassword = 'loginByPassword';
-const String routerSingleChatList = 'singleChatList';
 const String routerSingleChat = 'singleChat';
 const String routerSingleDetail = 'singleDetail';
 const String routerSingleSearch = 'singleSearch';
-const String routerGroupChatList = 'groupChatList';
 const String routerGroupChat = 'groupChat';
 const String routerGroupDetail = 'groupDetail';
 const String routerGroupMemberDetail = 'groupMemberDetail';
-const String routerContact = 'contact';
-const String routerDiscovery = 'discovery';
-const String routerAccount = 'account';
 const String routerSetBackground = 'setBackGround';
 
 // 3.color definition
@@ -47,3 +42,39 @@ const double opacity6 = 0.6;
 const double opacity7 = 0.7;
 const double opacity8 = 0.8;
 const double opacity9 = 0.9;
+
+// 4.alphabetical definition
+const Set<String> setAlphabetical = {
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z',
+};
+const String charSpecial = '#';
+
+// 5.regexp definition
+final regChinese = RegExp(r'[\u4e00-\u9fa5]');
+final regEnglish = RegExp(r'[a-zA-Z]');
+final regSpecial = RegExp(r'[^a-zA-Z\u4e00-\u9fa5]');

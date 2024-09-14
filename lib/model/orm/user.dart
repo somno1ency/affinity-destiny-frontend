@@ -3,6 +3,9 @@ class User {
   final String mobile;
   final String avatar;
   final int sex;
+  final int categoryId;
+  final String categoryName;
+  final int categoryStar;
   final String nickname;
 
   const User({
@@ -11,5 +14,8 @@ class User {
     required this.avatar,
     required this.sex,
     required this.nickname,
+    this.categoryId = 0,
+    this.categoryName = '',
+    this.categoryStar = 0,
   });
 }

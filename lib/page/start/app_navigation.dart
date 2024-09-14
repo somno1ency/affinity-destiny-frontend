@@ -4,27 +4,32 @@ import 'package:ionicons/ionicons.dart';
 
 import '../../component/shared/app_bottom_bar.dart';
 import '../../model/component/navigation_menu.dart';
+import '../../model/component/navigation_args.dart';
 import '../../page/chat/chat_list.dart';
 import '../../page/group/group_list.dart';
 import '../../page/contact/contact_user.dart';
 
 class AppNavigationPage extends StatefulWidget {
-  final int index;
+  final NavigationArgs args;
 
-  const AppNavigationPage({super.key, this.index = 0});
+  const AppNavigationPage({
+    super.key,
+    required this.args,
+  });
 
   @override
   State<AppNavigationPage> createState() => _AppNavigationPageState();
 }
 
 class _AppNavigationPageState extends State<AppNavigationPage> {
-  final PageController _controller = PageController();
+  late PageController _controller;
   int _index = 0;
 
   @override
   void initState() {
     super.initState();
-    _index = widget.index;
+    _index = widget.args.index;
+    _controller = PageController(initialPage: _index);
   }
 
   @override
@@ -73,11 +78,11 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
     return PageView(
       controller: _controller,
       children: [
-        ChatListPage(title: AppLocalizations.of(context)!.navMenu_singleChat),
-        GroupListPage(title: AppLocalizations.of(context)!.navMenu_groupChat),
-        ContactUserPage(title: AppLocalizations.of(context)!.navMenu_contact),
-        ChatListPage(title: AppLocalizations.of(context)!.navMenu_discovery),
-        ChatListPage(title: AppLocalizations.of(context)!.navMenu_account),
+        ChatListPage(title: widget.args.args0),
+        GroupListPage(title: widget.args.args1),
+        ContactUserPage(category: widget.args.args2),
+        ChatListPage(title: widget.args.args3),
+        ChatListPage(title: widget.args.args4),
       ],
     );
   }

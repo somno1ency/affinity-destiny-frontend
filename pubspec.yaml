@@ -11,10 +11,12 @@ dependencies:
   eva_icons_flutter: ^3.1.0
   flutter:
     sdk: flutter
+  flutter_langdetect: ^0.0.2
   flutter_localizations:
     sdk: flutter
   intl: any
   ionicons: ^0.2.2
+  pinyin: ^3.3.0
   wrapper: ^1.0.2
 
 dev_dependencies:

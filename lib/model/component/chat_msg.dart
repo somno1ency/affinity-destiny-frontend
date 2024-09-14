@@ -1,4 +1,4 @@
-import 'message_type_enum.dart';
+import 'enumeration/message_type.dart';
 
 class ChatMsg {
   final String? avatar;

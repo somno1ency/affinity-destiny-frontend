@@ -3,7 +3,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:english_words/english_words.dart';
-
 import 'dart:math';
 
 import '../../component/chat/app_chat_bar.dart';
@@ -13,6 +12,7 @@ import '../../model/orm/user.dart';
 import '../../model/orm/group.dart';
 import '../../model/component/chat_list_item_info.dart';
 import '../../shared/constant.dart';
+import '../../shared/util/build_util.dart';
 
 class GroupListPage extends StatefulWidget {
   final String title;
@@ -38,19 +38,52 @@ class _GroupListPageState extends State<GroupListPage> {
     return Scaffold(
       appBar: AppChatBar(
         title: widget.title,
-        actions: [
-          IconButton(
-            icon: const Icon(EvaIcons.plusCircleOutline),
-            color: colorWhite,
-            iconSize: 24,
-            onPressed: () {
-              _showAddMenu(context);
-            },
-          ),
-        ],
+        actions: _buildActions(context),
       ),
       body: _buildBody(context),
     );
+  }
+
+  List<Widget> _buildActions(BuildContext context) {
+    return [
+      PopupMenuButton<String>(
+        itemBuilder: _buildItem,
+        onSelected: (value) {},
+        icon: const Icon(EvaIcons.plusCircleOutline),
+        iconSize: 24,
+        iconColor: colorWhite,
+        color: colorWhite,
+        position: PopupMenuPosition.under,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+      )
+    ];
+  }
+
+  List<PopupMenuEntry<String>> _buildItem(BuildContext context) {
+    return [
+      BuildUtil.buildPopupMenuItem(
+        Ionicons.chatbubble_ellipses_outline,
+        Theme.of(context).primaryColor,
+        AppLocalizations.of(context)!.chat_startGroupChat,
+        Theme.of(context)
+            .primaryTextTheme
+            .labelMedium!
+            .copyWith(color: Theme.of(context).primaryColor),
+        () {},
+      ),
+      BuildUtil.buildPopupMenuItem(
+        Ionicons.person_add,
+        Theme.of(context).primaryColor,
+        AppLocalizations.of(context)!.chat_addFriend,
+        Theme.of(context)
+            .primaryTextTheme
+            .labelMedium!
+            .copyWith(color: Theme.of(context).primaryColor),
+        () {},
+      ),
+    ];
   }
 
   Widget _buildBody(BuildContext context) {
@@ -117,62 +150,6 @@ class _GroupListPageState extends State<GroupListPage> {
           ),
         ),
       ],
-    );
-  }
-
-  void _showAddMenu(BuildContext context) {
-    final RenderBox button = context.findRenderObject() as RenderBox;
-    final Offset offset = button.localToGlobal(Offset.zero);
-    final double x = offset.dx + button.size.width;
-    final double y = offset.dy;
-
-    showMenu(
-      context: context,
-      elevation: 0,
-      shadowColor: colorTransparent,
-      position: RelativeRect.fromLTRB(x, y, 0, 0),
-      items: [
-        _buildMenuItem(
-          context,
-          AppLocalizations.of(context)!.chat_startGroupChat,
-          Ionicons.chatbubble_ellipses_outline,
-          () {},
-        ),
-        _buildMenuItem(
-          context,
-          AppLocalizations.of(context)!.chat_addFriend,
-          Ionicons.person_add_outline,
-          () {},
-        ),
-      ],
-    );
-  }
-
-  PopupMenuItem _buildMenuItem(
-    BuildContext context,
-    String label,
-    IconData icon,
-    VoidCallback callback,
-  ) {
-    return PopupMenuItem(
-      onTap: callback,
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: Theme.of(context).primaryColor,
-            size: 16,
-          ),
-          const SizedBox(width: 5),
-          Text(
-            label,
-            style: Theme.of(context)
-                .primaryTextTheme
-                .labelMedium!
-                .copyWith(color: Theme.of(context).primaryColor),
-          ),
-        ],
-      ),
     );
   }
 }

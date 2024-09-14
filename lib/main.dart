@@ -1,7 +1,10 @@
+import 'package:affinity_destiny/model/component/enumeration/contact_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'model/component/contact_category.dart';
+import 'model/component/navigation_args.dart';
 import 'shared/constant.dart';
 import 'page/start/app_navigation.dart';
 import 'page/start/app_start.dart';
@@ -11,7 +14,6 @@ import 'page/start/login_phone.dart';
 import 'page/start/login_code.dart';
 import 'page/start/login_password.dart';
 import 'page/chat/chat.dart';
-import 'page/group/group.dart';
 
 part 'shared/router.dart';
 

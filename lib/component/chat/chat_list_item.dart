@@ -68,10 +68,11 @@ class ChatListItem extends StatelessWidget {
         radius: 30,
         backgroundColor: Theme.of(context).primaryColor.withOpacity(opacity5),
         child: Text(
-          chatListItemInfo.name.substring(0, 1),
-          style: Theme.of(context).primaryTextTheme.bodyMedium!.copyWith(
-                color: colorGrey,
-              ),
+          chatListItemInfo.name[0],
+          style: Theme.of(context)
+              .primaryTextTheme
+              .bodyMedium!
+              .copyWith(color: colorGrey),
         ),
       );
     }
@@ -85,19 +86,18 @@ class ChatListItem extends StatelessWidget {
       children: [
         Text(
           chatListItemInfo.name,
-          style: Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
-                // color: Theme.of(context).primaryColor.withOpacity(opacity9),
-                color: colorMain,
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(context)
+              .primaryTextTheme
+              .titleSmall!
+              .copyWith(color: colorMain, fontWeight: FontWeight.bold),
         ),
         chatListItemInfo.lastMsgTime != null
             ? Text(
                 chatListItemInfo.lastMsgTime!,
-                style: Theme.of(context).primaryTextTheme.labelSmall!.copyWith(
-                      // color: Theme.of(context).primaryColor.withOpacity(opacity7),
-                      color: colorSub2,
-                    ),
+                style: Theme.of(context)
+                    .primaryTextTheme
+                    .labelSmall!
+                    .copyWith(color: colorSub2),
               )
             : const Text('')
       ],
@@ -115,10 +115,10 @@ class ChatListItem extends StatelessWidget {
                             chatListItemInfo.unreadCount) +
                         chatListItemInfo.lastMsg!
                     : chatListItemInfo.lastMsg!,
-                style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                      // color: Theme.of(context).primaryColor.withOpacity(opacity8),
-                      color: colorSub2,
-                    ),
+                style: Theme.of(context)
+                    .primaryTextTheme
+                    .labelMedium!
+                    .copyWith(color: colorSub2),
               )
             : const Text(''),
         Icon(

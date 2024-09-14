@@ -22,5 +22,10 @@
     "chat_startGroupChat": "Create Group Chat",
     "chat_addFriend": "Add Friend",
     "chat_unreadCountTips": "[Unread{count}] ",
-    "search_placeholder": "Search"
+    "search_placeholder": "Search",
+    "order_byCategory": "By Category",
+    "order_byAlphabet": "By Alphabet",
+    "item_newFriend": "New Friend",
+    "item_groupManager": "Group Manager",
+    "item_categoryManager": "Category Manager"
 }

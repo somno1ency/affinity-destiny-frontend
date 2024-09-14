@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wrapper/wrapper.dart';
 
 import '../../model/component/chat_msg.dart';
-import '../../model/component/message_type_enum.dart';
+import '../../model/component/enumeration/message_type.dart';
 import '../../shared/constant.dart';
 
 class ChatItem extends StatelessWidget {
@@ -72,13 +72,14 @@ class ChatItem extends StatelessWidget {
   //     width: 40,
   //     margin: iconPadding,
   //     decoration: BoxDecoration(
-  //         borderRadius: BorderRadius.circular(3),
-  //         image: DecorationImage(
-  //           image: AssetImage(
-  //             msg.avatar ?? '',
-  //           ),
-  //           fit: BoxFit.cover,
-  //         )),
+  //       borderRadius: BorderRadius.circular(3),
+  //       image: DecorationImage(
+  //         image: AssetImage(
+  //           chatMsg.avatar ?? '',
+  //         ),
+  //         fit: BoxFit.cover,
+  //       ),
+  //     ),
   //   );
   // }
 
@@ -93,7 +94,7 @@ class ChatItem extends StatelessWidget {
             backgroundColor:
                 Theme.of(context).primaryColor.withOpacity(opacity5),
             child: Text(
-              chatMsg.name == null ? '' : chatMsg.name!.substring(0, 1),
+              chatMsg.name == null ? '' : chatMsg.name![0],
               style: Theme.of(context)
                   .primaryTextTheme
                   .bodyMedium!
