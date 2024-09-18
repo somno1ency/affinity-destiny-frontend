@@ -55,7 +55,7 @@ class AlphabetSideBar extends StatelessWidget {
                       child: Center(
                         child: Text(
                           _letters[index][0],
-                          style: Theme.of(context).textTheme.labelSmall,
+                          style: textTheme.labelSmall,
                         ),
                       ),
                     ),

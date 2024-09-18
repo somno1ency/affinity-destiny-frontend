@@ -63,15 +63,12 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
-              fontSize:
-                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
+              fontSize: textThemePrimary.labelMedium!.fontSize!,
               leftPart: Center(
                 child: Text(
-                  '+86',
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .labelMedium!
-                      .copyWith(color: Theme.of(context).primaryColor),
+                  cnPhonePrefix,
+                  style:
+                      textThemePrimary.labelMedium!.copyWith(color: colorTheme),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -80,9 +77,9 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Ionicons.help_circle_outline,
-                      color: Theme.of(context).primaryColor,
+                      color: colorTheme,
                       size: 20,
                     ),
                   ),
@@ -97,8 +94,7 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
               ),
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_passwordTips,
-                tipsSize:
-                    Theme.of(context).primaryTextTheme.titleSmall!.fontSize,
+                tipsSize: textThemePrimary.titleSmall!.fontSize,
                 icon: EvaIcons.arrowCircleRight,
                 iconSize: 24,
                 callback: () {
@@ -112,9 +108,9 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
           onPressed: () {
             Navigator.pushNamed(context, routerLoginCode);
           },
-          icon: Icon(
+          icon: const Icon(
             EvaIcons.arrowCircleRight,
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
             size: 80,
           ),
         ),

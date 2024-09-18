@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/constant.dart';
+
 class GoStep extends StatelessWidget {
   final String tips;
   final double? tipsSize;
@@ -24,13 +26,13 @@ class GoStep extends StatelessWidget {
           icon: Icon(icon),
           onPressed: callback,
           iconSize: iconSize,
-          color: Theme.of(context).primaryColor,
+          color: colorTheme,
         ),
         Text(
           tips,
           style: TextStyle(
             fontSize: tipsSize,
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
           ),
         ),
       ],

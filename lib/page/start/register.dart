@@ -57,14 +57,11 @@ class _RegisterPageState extends State<RegisterPage>
           bodyWidth: 200,
           height: 50,
           radius: 40,
-          fontSize: Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
+          fontSize: textThemePrimary.labelMedium!.fontSize!,
           leftPart: Center(
             child: Text(
-              '+86',
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .labelMedium!
-                  .copyWith(color: Theme.of(context).primaryColor),
+              cnPhonePrefix,
+              style: textThemePrimary.labelMedium!.copyWith(color: colorTheme),
               textAlign: TextAlign.center,
             ),
           ),
@@ -73,9 +70,9 @@ class _RegisterPageState extends State<RegisterPage>
             children: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Ionicons.help_circle_outline,
-                  color: Theme.of(context).primaryColor,
+                  color: colorTheme,
                   size: 20,
                 ),
               ),
@@ -87,9 +84,9 @@ class _RegisterPageState extends State<RegisterPage>
           onPressed: () {
             Navigator.pushNamed(context, routerRegisterCode);
           },
-          icon: Icon(
+          icon: const Icon(
             EvaIcons.arrowCircleRight,
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
             size: 80,
           ),
         ),

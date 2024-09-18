@@ -65,10 +65,7 @@ class AppStartPage extends StatelessWidget {
           ),
           child: Text(
             AppLocalizations.of(context)!.start_signUp,
-            style: Theme.of(context)
-                .primaryTextTheme
-                .titleSmall!
-                .copyWith(color: colorWhite),
+            style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
           ),
         ),
         OutlinedButton(
@@ -83,10 +80,7 @@ class AppStartPage extends StatelessWidget {
           ),
           child: Text(
             AppLocalizations.of(context)!.start_signIn,
-            style: Theme.of(context)
-                .primaryTextTheme
-                .titleSmall!
-                .copyWith(color: colorWhite),
+            style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
           ),
         ),
       ],
@@ -107,10 +101,7 @@ class AppStartPage extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           AppLocalizations.of(context)!.start_signInOtherWay,
-          style: Theme.of(context)
-              .primaryTextTheme
-              .labelMedium!
-              .copyWith(color: colorWhite),
+          style: textThemePrimary.labelMedium!.copyWith(color: colorWhite),
         ),
         const SizedBox(width: 10),
         SizedBox(
@@ -153,10 +144,7 @@ class AppStartPage extends StatelessWidget {
         ),
         Text(
           AppLocalizations.of(context)!.start_agreement,
-          style: Theme.of(context)
-              .primaryTextTheme
-              .labelSmall!
-              .copyWith(color: colorWhite),
+          style: textThemePrimary.labelSmall!.copyWith(color: colorWhite),
         ),
       ],
     );

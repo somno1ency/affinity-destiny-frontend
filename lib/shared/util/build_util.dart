@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+
+import '../constant.dart';
 
 class BuildUtil {
   const BuildUtil._();
@@ -23,6 +28,232 @@ class BuildUtil {
           Text(
             text,
             style: textStyle,
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget buildChatBottomMenu(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: colorTheme.withOpacity(opacity4),
+          ),
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.imageOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_photo,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.cameraOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_takePhoto,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.videoOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_video,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.phoneCallOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_voice,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.folderOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_file,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.pinOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_location,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.archiveOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_redPacket,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: colorTheme.withOpacity(opacity4)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      EvaIcons.personOutline,
+                      size: 30,
+                      color: colorTheme,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.chatMenu_card,
+                    style: textThemePrimary.labelSmall!
+                        .copyWith(color: colorTheme),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
+            ],
           ),
         ],
       ),

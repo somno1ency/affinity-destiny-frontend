@@ -4,7 +4,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import '../../shared/constant.dart';
 
-class ChatInputBar extends StatelessWidget {
+class ChatInputBar extends StatefulWidget {
   final TextEditingController controller;
   final VoidCallback callback;
 
@@ -15,13 +15,17 @@ class ChatInputBar extends StatelessWidget {
   });
 
   @override
+  State<ChatInputBar> createState() => _ChatInputBarState();
+}
+
+class _ChatInputBarState extends State<ChatInputBar> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 49,
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(
-              color: Theme.of(context).primaryColor.withOpacity(opacity4)),
+          top: BorderSide(color: colorTheme.withOpacity(opacity4)),
         ),
       ),
       padding: const EdgeInsets.all(4),
@@ -35,13 +39,13 @@ class ChatInputBar extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Theme.of(context).primaryColor.withOpacity(opacity4),
+                  color: colorTheme.withOpacity(opacity4),
                 ),
               ),
               child: TextField(
-                cursorColor: Theme.of(context).primaryColor,
-                style: Theme.of(context).primaryTextTheme.bodySmall,
-                controller: controller,
+                cursorColor: colorTheme,
+                style: textThemePrimary.bodySmall,
+                controller: widget.controller,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   // TODO: why not conform component/shared/custom_input.dart on vertical center mechanism?
@@ -56,11 +60,11 @@ class ChatInputBar extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(Ionicons.happy_outline, size: 20),
-            onPressed: () {},
+            onPressed: widget.callback,
           ),
           IconButton(
             icon: const Icon(EvaIcons.plusCircleOutline, size: 20),
-            onPressed: () {},
+            onPressed: widget.callback,
           ),
         ],
       ),

@@ -56,10 +56,7 @@ class ChatItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Text(
           chatMsg.msg,
-          style: Theme.of(context)
-              .primaryTextTheme
-              .labelMedium!
-              .copyWith(color: colorChatSub),
+          style: textThemePrimary.labelMedium!.copyWith(color: colorChatSub),
         ),
       ),
     );
@@ -91,14 +88,10 @@ class ChatItem extends StatelessWidget {
           )
         : CircleAvatar(
             radius: 25,
-            backgroundColor:
-                Theme.of(context).primaryColor.withOpacity(opacity5),
+            backgroundColor: colorTheme.withOpacity(opacity5),
             child: Text(
               chatMsg.name == null ? '' : chatMsg.name![0],
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .bodyMedium!
-                  .copyWith(color: colorGrey),
+              style: textThemePrimary.bodyMedium!.copyWith(color: colorGrey),
             ),
           );
   }
@@ -114,10 +107,8 @@ class ChatItem extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8, bottom: 4),
               child: Text(
                 chatMsg.name!,
-                style: Theme.of(context)
-                    .primaryTextTheme
-                    .labelMedium!
-                    .copyWith(color: colorChatSub),
+                style:
+                    textThemePrimary.labelMedium!.copyWith(color: colorChatSub),
               ),
             ),
           Padding(
@@ -136,10 +127,7 @@ class ChatItem extends StatelessWidget {
               color: panelColor,
               child: Text(
                 chatMsg.msg,
-                style: Theme.of(context)
-                    .primaryTextTheme
-                    .bodySmall!
-                    .copyWith(color: colorBlack),
+                style: textThemePrimary.bodySmall!.copyWith(color: colorBlack),
               ),
             ),
           ),

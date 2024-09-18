@@ -65,8 +65,7 @@ class _LoginCodePageState extends State<LoginCodePage>
               ),
               child: GoStep(
                 tips: AppLocalizations.of(context)!.register_prevStep,
-                tipsSize:
-                    Theme.of(context).primaryTextTheme.titleSmall!.fontSize,
+                tipsSize: textThemePrimary.titleSmall!.fontSize,
                 icon: EvaIcons.arrowCircleLeft,
                 iconSize: 24,
                 callback: () {
@@ -82,8 +81,7 @@ class _LoginCodePageState extends State<LoginCodePage>
               ),
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_passwordTips,
-                tipsSize:
-                    Theme.of(context).primaryTextTheme.titleSmall!.fontSize,
+                tipsSize: textThemePrimary.titleSmall!.fontSize,
                 icon: EvaIcons.arrowCircleRight,
                 iconSize: 24,
                 callback: () {
@@ -97,9 +95,9 @@ class _LoginCodePageState extends State<LoginCodePage>
           onPressed: () {
             Navigator.of(context).pushNamed(routerMain);
           },
-          icon: Icon(
+          icon: const Icon(
             EvaIcons.arrowCircleRight,
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
             size: 80,
           ),
         ),
@@ -116,20 +114,17 @@ class _LoginCodePageState extends State<LoginCodePage>
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            border: Border.all(color: Theme.of(context).primaryColor),
+            border: Border.all(color: colorTheme),
             borderRadius: BorderRadius.circular(10),
           ),
           child: TextField(
-            cursorColor: Theme.of(context).primaryColor,
+            cursorColor: colorTheme,
             textAlign: TextAlign.center,
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 11),
               border: InputBorder.none,
             ),
-            style: Theme.of(context)
-                .textTheme
-                .labelMedium!
-                .copyWith(color: Theme.of(context).primaryColor),
+            style: textTheme.labelMedium!.copyWith(color: colorTheme),
           ),
         ),
       );

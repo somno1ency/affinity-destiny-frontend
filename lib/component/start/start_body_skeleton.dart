@@ -19,7 +19,7 @@ class StartBodySkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).primaryColor,
+      color: colorTheme,
       child: AnimatedBuilder(
         animation: animation,
         builder: (context, child) {
@@ -44,10 +44,8 @@ class StartBodySkeleton extends StatelessWidget {
                       children: [
                         Text(
                           tips,
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .labelLarge!
-                              .copyWith(color: Theme.of(context).primaryColor),
+                          style: textThemePrimary.labelLarge!
+                              .copyWith(color: colorTheme),
                         ),
                         const SizedBox(height: 100),
                         body,

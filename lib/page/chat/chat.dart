@@ -7,35 +7,35 @@ import 'dart:math';
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/chat_item.dart';
 import '../../component/chat/chat_input_bar.dart';
-import '../../model/orm/user.dart';
 import '../../model/component/enumeration/message_type.dart';
 import '../../model/component/chat_msg.dart';
+import '../../model/orm/user.dart';
+import '../../model/orm/user_contact.dart';
+import '../../model/router/chat_args.dart';
+import '../../model/router/chat_info_args.dart';
+import '../../shared/util/build_util.dart';
 import '../../shared/constant.dart';
 
-class ChatPage extends StatelessWidget {
-  // the login user info, will retrieve from token instead
-  final User? currentUser;
-  // chat target user info
-  final User? targetUser;
+class ChatPage extends StatefulWidget {
+  final ChatArgs args;
 
-  // not required is that we must definition the router first in router.dart, but at that moment, we don't know the future
-  // dynamic parameter value
   const ChatPage({
     super.key,
-    this.currentUser,
-    this.targetUser,
+    required this.args,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final arguments =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-    final currentUser = arguments?['currentUser'];
-    final targetUser = arguments?['targetUser'];
+  State<ChatPage> createState() => _ChatPageState();
+}
 
+class _ChatPageState extends State<ChatPage> {
+  bool _isBottomMenuOpen = true;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppChatBar(
-        title: targetUser?.nickname,
+        title: widget.args.targetUser.nickname,
         icon: EvaIcons.bellOffOutline,
         leading: IconButton(
           icon: const Icon(
@@ -55,7 +55,22 @@ class ChatPage extends StatelessWidget {
             ),
             color: colorWhite,
             onPressed: () {
-              Navigator.of(context).pop();
+              UserContact userContact = UserContact(
+                id: 1,
+                ownerId: widget.args.currentUser.id,
+                dstId: widget.args.targetUser.id,
+                isDisturb: false,
+                isTop: false,
+                isRemind: false,
+                background: '',
+              );
+              Navigator.of(context).pushNamed(
+                routerSingleDetail,
+                arguments: ChatInfoArgs(
+                  user: widget.args.targetUser,
+                  userContact: userContact,
+                ),
+              );
             },
           ),
         ],
@@ -75,9 +90,10 @@ class ChatPage extends StatelessWidget {
         ChatInputBar(
           controller: TextEditingController(),
           callback: () {
-            Navigator.pop(context);
+            _toggleBottomMenu();
           },
         ),
+        if (_isBottomMenuOpen) BuildUtil.buildChatBottomMenu(context),
       ],
     );
   }
@@ -115,5 +131,11 @@ class ChatPage extends StatelessWidget {
     });
 
     return fakeItems;
+  }
+
+  void _toggleBottomMenu() {
+    setState(() {
+      _isBottomMenuOpen = !_isBottomMenuOpen;
+    });
   }
 }

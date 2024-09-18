@@ -38,7 +38,7 @@ class RadiusInput extends StatelessWidget {
               width: sideWidth,
               height: height,
               decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).primaryColor),
+                border: Border.all(color: colorTheme),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(radius),
                   bottomLeft: Radius.circular(radius),
@@ -49,14 +49,14 @@ class RadiusInput extends StatelessWidget {
             Container(
               width: bodyWidth,
               height: height,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: Border(
-                  top: BorderSide(color: Theme.of(context).primaryColor),
-                  bottom: BorderSide(color: Theme.of(context).primaryColor),
+                  top: BorderSide(color: colorTheme),
+                  bottom: BorderSide(color: colorTheme),
                 ),
               ),
               child: TextField(
-                cursorColor: Theme.of(context).primaryColor,
+                cursorColor: colorTheme,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: verticalPadding,
@@ -64,25 +64,20 @@ class RadiusInput extends StatelessWidget {
                   ),
                   border: InputBorder.none,
                   hintText: hintText,
-                  hintStyle:
-                      Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                            color: Theme.of(context)
-                                .primaryColor
-                                .withOpacity(opacity5),
-                            height: 1,
-                          ),
+                  hintStyle: textThemePrimary.labelMedium!.copyWith(
+                    color: Theme.of(context).primaryColor.withOpacity(opacity5),
+                    height: 1,
+                  ),
                 ),
-                style: Theme.of(context)
-                    .primaryTextTheme
-                    .labelMedium!
-                    .copyWith(color: Theme.of(context).primaryColor),
+                style:
+                    textThemePrimary.labelMedium!.copyWith(color: colorTheme),
               ),
             ),
             Container(
               width: sideWidth,
               height: height,
               decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).primaryColor),
+                border: Border.all(color: colorTheme),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(radius),
                   bottomRight: Radius.circular(radius),

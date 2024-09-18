@@ -78,3 +78,47 @@ const String charSpecial = '#';
 final regChinese = RegExp(r'[\u4e00-\u9fa5]');
 final regEnglish = RegExp(r'[a-zA-Z]');
 final regSpecial = RegExp(r'[^a-zA-Z\u4e00-\u9fa5]');
+
+// 6.text theme definition
+const TextTheme textThemePrimary = TextTheme(
+  titleSmall: TextStyle(
+    fontSize: 16,
+    fontFamily: 'Consolas',
+    height: 1,
+  ),
+  bodyMedium: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 25,
+    height: 1,
+  ),
+  bodySmall: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 14,
+    height: 1,
+  ),
+  labelLarge: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 28,
+    height: 1,
+  ),
+  labelMedium: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 12,
+    height: 1,
+  ),
+  labelSmall: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 10,
+    height: 1,
+  ),
+);
+const TextTheme textTheme = TextTheme(
+  labelMedium: TextStyle(
+    fontFamily: 'Consolas',
+    fontSize: 24,
+    height: 1,
+  ),
+);
+
+// N.others definition
+const String cnPhonePrefix = '+86';

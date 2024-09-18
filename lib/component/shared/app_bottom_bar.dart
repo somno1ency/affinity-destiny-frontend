@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/component/navigation_menu.dart';
+import '../../shared/constant.dart';
 
 class AppBottomBar extends StatelessWidget {
   final int currentIndex;
@@ -20,7 +21,7 @@ class AppBottomBar extends StatelessWidget {
       onTap: callback,
       currentIndex: currentIndex,
       iconSize: 24,
-      fixedColor: Theme.of(context).primaryColor,
+      fixedColor: colorTheme,
       items: menus.map(_buildItemByMenuMeta).toList(),
     );
   }

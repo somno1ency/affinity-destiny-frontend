@@ -1,11 +1,16 @@
-import 'package:affinity_destiny/model/component/enumeration/contact_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'model/component/contact_category.dart';
-import 'model/component/navigation_args.dart';
+import 'model/router/contact_category.dart';
+import 'model/router/navigation_args.dart';
+import 'model/router/chat_args.dart';
+import 'model/router/chat_info_args.dart';
+import 'model/router/group_args.dart';
+import 'model/router/navigation_title_args.dart';
+import '/model/component/enumeration/contact_type.dart';
 import 'shared/constant.dart';
+
 import 'page/start/app_navigation.dart';
 import 'page/start/app_start.dart';
 import 'page/start/register.dart';
@@ -14,6 +19,8 @@ import 'page/start/login_phone.dart';
 import 'page/start/login_code.dart';
 import 'page/start/login_password.dart';
 import 'page/chat/chat.dart';
+import 'page/chat/chat_info.dart';
+import 'page/group/group.dart';
 
 part 'shared/router.dart';
 
@@ -38,9 +45,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedLabelStyle: Theme.of(context).primaryTextTheme.labelSmall,
-          unselectedLabelStyle: Theme.of(context).primaryTextTheme.labelSmall,
-          selectedItemColor: Theme.of(context).primaryColor,
+          selectedLabelStyle: textThemePrimary.labelSmall,
+          unselectedLabelStyle: textThemePrimary.labelSmall,
+          selectedItemColor: colorTheme,
           showSelectedLabels: true,
           showUnselectedLabels: true,
           backgroundColor: colorWhite,
@@ -49,45 +56,8 @@ class MyApp extends StatelessWidget {
         ),
         // primaryColor: const Color(0xFFA493FF),
         primaryColor: colorTheme,
-        primaryTextTheme: const TextTheme(
-          titleSmall: TextStyle(
-            fontSize: 16,
-            fontFamily: 'Consolas',
-            height: 1,
-          ),
-          bodyMedium: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 25,
-            height: 1,
-          ),
-          bodySmall: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 14,
-            height: 1,
-          ),
-          labelLarge: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 28,
-            height: 1,
-          ),
-          labelMedium: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 12,
-            height: 1,
-          ),
-          labelSmall: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 10,
-            height: 1,
-          ),
-        ),
-        textTheme: const TextTheme(
-          labelMedium: TextStyle(
-            fontFamily: 'Consolas',
-            fontSize: 24,
-            height: 1,
-          ),
-        ),
+        primaryTextTheme: textThemePrimary,
+        textTheme: textTheme,
         appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,

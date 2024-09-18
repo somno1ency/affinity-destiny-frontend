@@ -5,9 +5,10 @@ import 'package:ionicons/ionicons.dart';
 
 import '../../model/orm/user.dart';
 import '../../model/component/contact_block.dart';
-import '../../model/component/contact_category.dart';
+import '../../model/router/contact_category.dart';
 import '../../model/component/enumeration/contact_type.dart';
-import '../../model/component/navigation_args.dart';
+import '../../model/router/navigation_args.dart';
+import '../../model/router/navigation_title_args.dart';
 import '../../model/component/enumeration/alignment_location.dart';
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/alphabet_side_bar.dart';
@@ -54,7 +55,7 @@ class _ContactUserPageState extends State<ContactUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppChatBar(
-        title: widget.category.title,
+        title: widget.category.titleArgs.topTitle,
         actions: [
           IconButton(
             icon: const Icon(EvaIcons.plusCircleOutline),
@@ -67,43 +68,34 @@ class _ContactUserPageState extends State<ContactUserPage> {
       body: Column(
         children: [
           CustomInput(
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
             hintText: AppLocalizations.of(context)!.search_placeholder,
-            hintStyle: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-                color: Theme.of(context).primaryColor.withOpacity(opacity5)),
+            hintStyle: textThemePrimary.labelMedium!
+                .copyWith(color: colorTheme.withOpacity(opacity5)),
             fontSize: 12,
             isCenter: false,
           ),
           ActionItem(
             text: AppLocalizations.of(context)!.item_newFriend,
             icon: EvaIcons.personAddOutline,
-            iconColor: Theme.of(context).primaryColor,
-            textStyle: Theme.of(context)
-                .primaryTextTheme
-                .labelMedium!
-                .copyWith(color: colorMain),
+            iconColor: colorTheme,
+            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
             callback: () {},
             bottomBorder: true,
           ),
           ActionItem(
             text: AppLocalizations.of(context)!.item_groupManager,
             icon: EvaIcons.personOutline,
-            iconColor: Theme.of(context).primaryColor,
-            textStyle: Theme.of(context)
-                .primaryTextTheme
-                .labelMedium!
-                .copyWith(color: colorMain),
+            iconColor: colorTheme,
+            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
             callback: () {},
             bottomBorder: true,
           ),
           ActionItem(
             text: AppLocalizations.of(context)!.item_categoryManager,
             icon: EvaIcons.options2Outline,
-            iconColor: Theme.of(context).primaryColor,
-            textStyle: Theme.of(context)
-                .primaryTextTheme
-                .labelMedium!
-                .copyWith(color: colorMain),
+            iconColor: colorTheme,
+            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
             callback: () {},
             bottomBorder: true,
           ),
@@ -125,9 +117,7 @@ class _ContactUserPageState extends State<ContactUserPage> {
                                       const EdgeInsets.fromLTRB(16, 16, 16, 0),
                                   child: Text(
                                     contactBlocks[blockIndex].blockName,
-                                    style: Theme.of(context)
-                                        .primaryTextTheme
-                                        .titleSmall!
+                                    style: textThemePrimary.titleSmall!
                                         .copyWith(color: colorMain),
                                   ),
                                 ),
@@ -148,9 +138,7 @@ class _ContactUserPageState extends State<ContactUserPage> {
                                         contactBlocks[blockIndex]
                                             .users[userIndex]
                                             .nickname,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .bodySmall!
+                                        style: textThemePrimary.bodySmall!
                                             .copyWith(color: colorMain),
                                       ),
                                       subtitle: Container(
@@ -168,9 +156,7 @@ class _ContactUserPageState extends State<ContactUserPage> {
                                           contactBlocks[blockIndex]
                                               .users[userIndex]
                                               .categoryName,
-                                          style: Theme.of(context)
-                                              .primaryTextTheme
-                                              .labelSmall!
+                                          style: textThemePrimary.labelSmall!
                                               .copyWith(color: colorSub2),
                                         ),
                                       ),
@@ -220,18 +206,30 @@ class _ContactUserPageState extends State<ContactUserPage> {
         ? ContactType.custom
         : ContactType.alphabet;
     ContactCategory category = ContactCategory(
-      title: widget.category.title,
+      titleArgs: widget.category.titleArgs,
       type: newType,
     );
     Navigator.of(context).pushNamed(
       routerMain,
       arguments: NavigationArgs(
         index: 2,
-        args0: AppLocalizations.of(context)!.navMenu_singleChat,
-        args1: AppLocalizations.of(context)!.navMenu_groupChat,
+        args0: NavigationTitleArgs(
+          topTitle: AppLocalizations.of(context)!.navMenu_singleChatBlanked,
+          bottomTitle: AppLocalizations.of(context)!.navMenu_singleChat,
+        ),
+        args1: NavigationTitleArgs(
+          topTitle: AppLocalizations.of(context)!.navMenu_groupChatBlanked,
+          bottomTitle: AppLocalizations.of(context)!.navMenu_groupChat,
+        ),
         args2: category,
-        args3: AppLocalizations.of(context)!.navMenu_discovery,
-        args4: AppLocalizations.of(context)!.navMenu_account,
+        args3: NavigationTitleArgs(
+          topTitle: AppLocalizations.of(context)!.navMenu_discoveryBlanked,
+          bottomTitle: AppLocalizations.of(context)!.navMenu_discovery,
+        ),
+        args4: NavigationTitleArgs(
+          topTitle: AppLocalizations.of(context)!.navMenu_accountBlanked,
+          bottomTitle: AppLocalizations.of(context)!.navMenu_account,
+        ),
       ),
     );
   }

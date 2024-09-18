@@ -7,36 +7,32 @@ import 'dart:math';
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/chat_item.dart';
 import '../../component/chat/chat_input_bar.dart';
-import '../../model/orm/user.dart';
-import '../../model/orm/group.dart';
+import '../../model/router/group_args.dart';
 import '../../model/component/enumeration/message_type.dart';
 import '../../model/component/chat_msg.dart';
+import '../../shared/util/build_util.dart';
 import '../../shared/constant.dart';
 
-class GroupPage extends StatelessWidget {
-  // the login user info, will retrieve from token instead
-  final User? currentUser;
-  // chat target group info
-  final Group? targetGroup;
+class GroupPage extends StatefulWidget {
+  final GroupArgs args;
 
-  // not required is that we must definition the router first in router.dart, but at that moment, we don't know the future
-  // dynamic parameter value
   const GroupPage({
     super.key,
-    this.currentUser,
-    this.targetGroup,
+    required this.args,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final arguments =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-    final currentUser = arguments?['currentUser'];
-    final targetGroup = arguments?['targetGroup'];
+  State<GroupPage> createState() => _GroupPageState();
+}
 
+class _GroupPageState extends State<GroupPage> {
+  bool _isBottomMenuOpen = true;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppChatBar(
-        title: targetGroup.name,
+        title: widget.args.targetGroup.name,
         icon: EvaIcons.bellOffOutline,
         leading: IconButton(
           icon: const Icon(
@@ -56,7 +52,7 @@ class GroupPage extends StatelessWidget {
             ),
             color: colorWhite,
             onPressed: () {
-              Navigator.of(context).pop();
+              _toggleBottomMenu();
             },
           ),
         ],
@@ -71,9 +67,10 @@ class GroupPage extends StatelessWidget {
           ChatInputBar(
             controller: TextEditingController(),
             callback: () {
-              Navigator.pop(context);
+              _toggleBottomMenu();
             },
           ),
+          if (_isBottomMenuOpen) BuildUtil.buildChatBottomMenu(context),
         ],
       ),
     );
@@ -112,5 +109,11 @@ class GroupPage extends StatelessWidget {
     });
 
     return fakeItems;
+  }
+
+  void _toggleBottomMenu() {
+    setState(() {
+      _isBottomMenuOpen = !_isBottomMenuOpen;
+    });
   }
 }

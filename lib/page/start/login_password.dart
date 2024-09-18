@@ -63,16 +63,13 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
-              fontSize:
-                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
+              fontSize: textThemePrimary.labelMedium!.fontSize!,
               // below two way can make vertical center worked, but center maybe simpler
               // leftPart: Center(
               //   child: Text(
               //     AppLocalizations.of(context)!.login_phone,
-              //     style: Theme.of(context)
-              //         .primaryTextTheme
-              //         .labelMedium!
-              //         .copyWith(color: Theme.of(context).primaryColor),
+              //     style:
+              //         textThemePrimary.labelMedium!.copyWith(color: colorTheme),
               //     textAlign: TextAlign.center,
               //   ),
               // ),
@@ -81,10 +78,8 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
                 children: [
                   Text(
                     AppLocalizations.of(context)!.login_phone,
-                    style: Theme.of(context)
-                        .primaryTextTheme
-                        .labelMedium!
-                        .copyWith(color: Theme.of(context).primaryColor),
+                    style: textThemePrimary.labelMedium!
+                        .copyWith(color: colorTheme),
                     textAlign: TextAlign.center,
                   )
                 ],
@@ -94,9 +89,9 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Ionicons.help_circle_outline,
-                      color: Theme.of(context).primaryColor,
+                      color: colorTheme,
                       size: 20,
                     ),
                   ),
@@ -110,15 +105,12 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               bodyWidth: 200,
               height: 50,
               radius: 40,
-              fontSize:
-                  Theme.of(context).primaryTextTheme.labelMedium!.fontSize!,
+              fontSize: textThemePrimary.labelMedium!.fontSize!,
               leftPart: Center(
                 child: Text(
                   AppLocalizations.of(context)!.login_password,
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .labelMedium!
-                      .copyWith(color: Theme.of(context).primaryColor),
+                  style:
+                      textThemePrimary.labelMedium!.copyWith(color: colorTheme),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -127,9 +119,9 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Ionicons.eye_off_outline,
-                      color: Theme.of(context).primaryColor,
+                      color: colorTheme,
                       size: 20,
                     ),
                   ),
@@ -144,8 +136,7 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
               ),
               child: GoStep(
                 tips: AppLocalizations.of(context)!.login_phoneTips,
-                tipsSize:
-                    Theme.of(context).primaryTextTheme.titleSmall!.fontSize,
+                tipsSize: textThemePrimary.titleSmall!.fontSize,
                 icon: EvaIcons.arrowCircleRight,
                 iconSize: 24,
                 callback: () {
@@ -159,9 +150,9 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
           onPressed: () {
             Navigator.of(context).pushNamed(routerMain);
           },
-          icon: Icon(
+          icon: const Icon(
             EvaIcons.arrowCircleRight,
-            color: Theme.of(context).primaryColor,
+            color: colorTheme,
             size: 80,
           ),
         ),

@@ -32,7 +32,7 @@ class ChatListItem extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Theme.of(context).primaryColor.withOpacity(opacity1),
+              color: colorTheme.withOpacity(opacity1),
             ),
           ),
         ),
@@ -66,13 +66,10 @@ class ChatListItem extends StatelessWidget {
     } else {
       avatar = CircleAvatar(
         radius: 30,
-        backgroundColor: Theme.of(context).primaryColor.withOpacity(opacity5),
+        backgroundColor: colorTheme.withOpacity(opacity5),
         child: Text(
           chatListItemInfo.name[0],
-          style: Theme.of(context)
-              .primaryTextTheme
-              .bodyMedium!
-              .copyWith(color: colorGrey),
+          style: textThemePrimary.bodyMedium!.copyWith(color: colorGrey),
         ),
       );
     }
@@ -86,18 +83,13 @@ class ChatListItem extends StatelessWidget {
       children: [
         Text(
           chatListItemInfo.name,
-          style: Theme.of(context)
-              .primaryTextTheme
-              .titleSmall!
+          style: textThemePrimary.titleSmall!
               .copyWith(color: colorMain, fontWeight: FontWeight.bold),
         ),
         chatListItemInfo.lastMsgTime != null
             ? Text(
                 chatListItemInfo.lastMsgTime!,
-                style: Theme.of(context)
-                    .primaryTextTheme
-                    .labelSmall!
-                    .copyWith(color: colorSub2),
+                style: textThemePrimary.labelSmall!.copyWith(color: colorSub2),
               )
             : const Text('')
       ],
@@ -115,16 +107,13 @@ class ChatListItem extends StatelessWidget {
                             chatListItemInfo.unreadCount) +
                         chatListItemInfo.lastMsg!
                     : chatListItemInfo.lastMsg!,
-                style: Theme.of(context)
-                    .primaryTextTheme
-                    .labelMedium!
-                    .copyWith(color: colorSub2),
+                style: textThemePrimary.labelMedium!.copyWith(color: colorSub2),
               )
             : const Text(''),
         Icon(
           icon,
           size: 14,
-          color: Theme.of(context).primaryColor,
+          color: colorTheme,
         ),
       ],
     );

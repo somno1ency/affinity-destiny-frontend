@@ -22,10 +22,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
     if (icon == null) {
       customTitle = Text(
         title,
-        style: Theme.of(context)
-            .primaryTextTheme
-            .titleSmall!
-            .copyWith(color: colorWhite),
+        style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
       );
     } else {
       customTitle = Row(
@@ -33,10 +30,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context)
-                .primaryTextTheme
-                .titleSmall!
-                .copyWith(color: colorWhite),
+            style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
           ),
           const SizedBox(width: 8),
           Icon(
@@ -55,7 +49,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
       title: customTitle,
       actions: actions,
       centerTitle: true,
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: colorTheme,
     );
   }
 

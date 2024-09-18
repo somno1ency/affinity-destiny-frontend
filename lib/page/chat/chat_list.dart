@@ -9,6 +9,7 @@ import '../../component/chat/app_chat_bar.dart';
 import '../../component/shared/custom_input.dart';
 import '../../component/chat/chat_list_item.dart';
 import '../../model/orm/user.dart';
+import '../../model/router/chat_args.dart';
 import '../../model/component/chat_list_item_info.dart';
 import '../../shared/constant.dart';
 import '../../shared/util/build_util.dart';
@@ -64,22 +65,16 @@ class _ChatListPageState extends State<ChatListPage> {
     return [
       BuildUtil.buildPopupMenuItem(
         Ionicons.chatbubble_ellipses_outline,
-        Theme.of(context).primaryColor,
+        colorTheme,
         AppLocalizations.of(context)!.chat_startGroupChat,
-        Theme.of(context)
-            .primaryTextTheme
-            .labelMedium!
-            .copyWith(color: Theme.of(context).primaryColor),
+        textThemePrimary.labelMedium!.copyWith(color: colorTheme),
         () {},
       ),
       BuildUtil.buildPopupMenuItem(
         Ionicons.person_add,
-        Theme.of(context).primaryColor,
+        colorTheme,
         AppLocalizations.of(context)!.chat_addFriend,
-        Theme.of(context)
-            .primaryTextTheme
-            .labelMedium!
-            .copyWith(color: Theme.of(context).primaryColor),
+        textThemePrimary.labelMedium!.copyWith(color: colorTheme),
         () {},
       ),
     ];
@@ -104,10 +99,10 @@ class _ChatListPageState extends State<ChatListPage> {
     return Column(
       children: [
         CustomInput(
-          color: Theme.of(context).primaryColor,
+          color: colorTheme,
           hintText: AppLocalizations.of(context)!.search_placeholder,
-          hintStyle: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-              color: Theme.of(context).primaryColor.withOpacity(opacity5)),
+          hintStyle: textThemePrimary.labelMedium!
+              .copyWith(color: colorTheme.withOpacity(opacity5)),
           fontSize: 12,
           isCenter: false,
         ),
@@ -128,10 +123,10 @@ class _ChatListPageState extends State<ChatListPage> {
                   Navigator.pushNamed(
                     context,
                     routerSingleChat,
-                    arguments: {
-                      'currentUser': currentUser,
-                      'targetUser': targetUser,
-                    },
+                    arguments: ChatArgs(
+                      currentUser: currentUser,
+                      targetUser: targetUser,
+                    ),
                   );
                 },
               );

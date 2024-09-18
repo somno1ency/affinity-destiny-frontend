@@ -11,6 +11,7 @@ import '../../component/chat/chat_list_item.dart';
 import '../../model/orm/user.dart';
 import '../../model/orm/group.dart';
 import '../../model/component/chat_list_item_info.dart';
+import '../../model/router/group_args.dart';
 import '../../shared/constant.dart';
 import '../../shared/util/build_util.dart';
 
@@ -65,22 +66,16 @@ class _GroupListPageState extends State<GroupListPage> {
     return [
       BuildUtil.buildPopupMenuItem(
         Ionicons.chatbubble_ellipses_outline,
-        Theme.of(context).primaryColor,
+        colorTheme,
         AppLocalizations.of(context)!.chat_startGroupChat,
-        Theme.of(context)
-            .primaryTextTheme
-            .labelMedium!
-            .copyWith(color: Theme.of(context).primaryColor),
+        textThemePrimary.labelMedium!.copyWith(color: colorTheme),
         () {},
       ),
       BuildUtil.buildPopupMenuItem(
         Ionicons.person_add,
-        Theme.of(context).primaryColor,
+        colorTheme,
         AppLocalizations.of(context)!.chat_addFriend,
-        Theme.of(context)
-            .primaryTextTheme
-            .labelMedium!
-            .copyWith(color: Theme.of(context).primaryColor),
+        textThemePrimary.labelMedium!.copyWith(color: colorTheme),
         () {},
       ),
     ];
@@ -109,10 +104,10 @@ class _GroupListPageState extends State<GroupListPage> {
     return Column(
       children: [
         CustomInput(
-          color: Theme.of(context).primaryColor,
+          color: colorTheme,
           hintText: AppLocalizations.of(context)!.search_placeholder,
-          hintStyle: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
-              color: Theme.of(context).primaryColor.withOpacity(opacity5)),
+          hintStyle: textThemePrimary.labelMedium!
+              .copyWith(color: colorTheme.withOpacity(opacity5)),
           fontSize: 12,
           isCenter: false,
         ),
@@ -128,7 +123,7 @@ class _GroupListPageState extends State<GroupListPage> {
                     id: index,
                     ownerId: 1,
                     groupId: 'xxx',
-                    name: WordPair.random().asPascalCase,
+                    name: fakeInfoItems[index].name,
                     category: _random.nextInt(10),
                     // not need to display the icon in chat detail, so this field is not used
                     icon: identity > 0
@@ -139,10 +134,10 @@ class _GroupListPageState extends State<GroupListPage> {
                   Navigator.pushNamed(
                     context,
                     routerGroupChat,
-                    arguments: {
-                      'currentUser': currentUser,
-                      'targetGroup': targetGroup,
-                    },
+                    arguments: GroupArgs(
+                      currentUser: currentUser,
+                      targetGroup: targetGroup,
+                    ),
                   );
                 },
               );
