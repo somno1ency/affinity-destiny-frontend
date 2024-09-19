@@ -120,8 +120,7 @@ class _ChatListPageState extends State<ChatListPage> {
                     sex: 2,
                     nickname: fakeInfoItems[index].name,
                   );
-                  Navigator.pushNamed(
-                    context,
+                  Navigator.of(context).pushNamed(
                     routerSingleChat,
                     arguments: ChatArgs(
                       currentUser: currentUser,

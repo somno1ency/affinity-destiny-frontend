@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage>
         ),
         iconButton: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, routerRegisterCode);
+            Navigator.of(context).pushNamed(routerRegisterCode);
           },
           icon: const Icon(
             EvaIcons.arrowCircleRight,

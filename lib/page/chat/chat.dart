@@ -44,7 +44,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
           color: colorWhite,
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
         actions: [

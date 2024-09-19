@@ -41,7 +41,7 @@ class _GroupPageState extends State<GroupPage> {
           ),
           color: colorWhite,
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
         actions: [

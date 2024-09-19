@@ -4,6 +4,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import '../constant.dart';
+import '../../model/orm/user.dart';
 
 class BuildUtil {
   const BuildUtil._();
@@ -256,6 +257,87 @@ class BuildUtil {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  static Widget buildPhotoGallery(List<User> users) {
+    List<Widget> photos = [];
+    for (var user in users) {
+      Widget current = Container(
+        color: colorWhite,
+        child: Column(
+          children: [
+            user.avatar != ''
+                ? Container(
+                    height: 50,
+                    width: 50,
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          user.avatar,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: 50,
+                    width: 50,
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: colorSub2.withOpacity(opacity3),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        user.nickname[0],
+                        style: textThemePrimary.bodyMedium!
+                            .copyWith(color: colorTheme.withOpacity(opacity5)),
+                      ),
+                    ),
+                  ),
+            Text(
+              user.nickname,
+              style: textThemePrimary.labelSmall!.copyWith(color: colorSub2),
+            ),
+          ],
+        ),
+      );
+
+      photos.add(current);
+    }
+    Widget lastItem = Container(
+      height: 50,
+      width: 50,
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      decoration: BoxDecoration(
+        color: colorWhite,
+        border: Border.all(
+          color: colorSub1.withOpacity(opacity6),
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: const Icon(
+        EvaIcons.plus,
+        size: 30,
+        color: colorSub1,
+      ),
+    );
+    photos.add(lastItem);
+
+    return Container(
+      width: double.infinity,
+      color: colorWhite,
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Wrap(
+        spacing: -15,
+        runSpacing: 5,
+        children: [...photos],
       ),
     );
   }

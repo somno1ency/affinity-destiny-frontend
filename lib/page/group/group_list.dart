@@ -131,8 +131,7 @@ class _GroupListPageState extends State<GroupListPage> {
                         : '',
                     memo: WordPair.random().asSnakeCase,
                   );
-                  Navigator.pushNamed(
-                    context,
+                  Navigator.of(context).pushNamed(
                     routerGroupChat,
                     arguments: GroupArgs(
                       currentUser: currentUser,

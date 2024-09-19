@@ -106,7 +106,7 @@ class _LoginByPhonePageState extends State<LoginByPhonePage>
         ),
         iconButton: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, routerLoginCode);
+            Navigator.of(context).pushNamed(routerLoginCode);
           },
           icon: const Icon(
             EvaIcons.arrowCircleRight,

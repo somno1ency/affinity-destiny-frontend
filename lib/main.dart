@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: colorWhite.withOpacity(opacity95),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedLabelStyle: textThemePrimary.labelSmall,
           unselectedLabelStyle: textThemePrimary.labelSmall,

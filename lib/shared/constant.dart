@@ -42,6 +42,7 @@ const double opacity6 = 0.6;
 const double opacity7 = 0.7;
 const double opacity8 = 0.8;
 const double opacity9 = 0.9;
+const double opacity95 = 0.95;
 
 // 4.alphabetical definition
 const Set<String> setAlphabetical = {

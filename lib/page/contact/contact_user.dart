@@ -7,13 +7,13 @@ import '../../model/orm/user.dart';
 import '../../model/component/contact_block.dart';
 import '../../model/router/contact_category.dart';
 import '../../model/component/enumeration/contact_type.dart';
+import '../../model/component/menu_item.dart';
 import '../../model/router/navigation_args.dart';
 import '../../model/router/navigation_title_args.dart';
 import '../../model/component/enumeration/alignment_location.dart';
 import '../../component/chat/app_chat_bar.dart';
 import '../../component/chat/alphabet_side_bar.dart';
 import '../../component/shared/custom_input.dart';
-import '../../component/shared/action_item.dart';
 import '../../shared/constant.dart';
 import '../../shared/util/lang_util.dart';
 
@@ -53,6 +53,49 @@ class _ContactUserPageState extends State<ContactUserPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<MenuItem> menuItems = [
+      MenuItem(
+        title: AppLocalizations.of(context)!.item_newFriend,
+        icon: EvaIcons.personAddOutline,
+        callback: () {},
+        showBottomBorder: true,
+      ),
+      MenuItem(
+        title: AppLocalizations.of(context)!.item_groupManager,
+        icon: EvaIcons.personOutline,
+        callback: () {},
+        showBottomBorder: true,
+      ),
+      MenuItem(
+        title: AppLocalizations.of(context)!.item_categoryManager,
+        icon: EvaIcons.options2Outline,
+        callback: () {},
+        showBottomBorder: true,
+      ),
+    ];
+    List<Widget> actionItems = [];
+    for (var menu in menuItems) {
+      actionItems.add(
+        Column(
+          children: [
+            ListTile(
+              leading: Icon(menu.icon, size: 24, color: colorTheme),
+              title: Text(
+                menu.title,
+                style: textThemePrimary.labelMedium!.copyWith(color: colorMain),
+              ),
+              onTap: menu.callback,
+            ),
+            if (menu.showBottomBorder)
+              Divider(
+                height: 1,
+                color: colorGrey.withOpacity(opacity1),
+              ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppChatBar(
         title: widget.category.titleArgs.topTitle,
@@ -65,122 +108,126 @@ class _ContactUserPageState extends State<ContactUserPage> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          CustomInput(
-            color: colorTheme,
-            hintText: AppLocalizations.of(context)!.search_placeholder,
-            hintStyle: textThemePrimary.labelMedium!
-                .copyWith(color: colorTheme.withOpacity(opacity5)),
-            fontSize: 12,
-            isCenter: false,
-          ),
-          ActionItem(
-            text: AppLocalizations.of(context)!.item_newFriend,
-            icon: EvaIcons.personAddOutline,
-            iconColor: colorTheme,
-            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
-            callback: () {},
-            bottomBorder: true,
-          ),
-          ActionItem(
-            text: AppLocalizations.of(context)!.item_groupManager,
-            icon: EvaIcons.personOutline,
-            iconColor: colorTheme,
-            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
-            callback: () {},
-            bottomBorder: true,
-          ),
-          ActionItem(
-            text: AppLocalizations.of(context)!.item_categoryManager,
-            icon: EvaIcons.options2Outline,
-            iconColor: colorTheme,
-            textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
-            callback: () {},
-            bottomBorder: true,
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: CustomScrollView(
-                    controller: _scrollController,
-                    slivers: [
-                      SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (context, blockIndex) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(16, 16, 16, 0),
-                                  child: Text(
-                                    contactBlocks[blockIndex].blockName,
-                                    style: textThemePrimary.titleSmall!
-                                        .copyWith(color: colorMain),
+      body: Material(
+        child: Column(
+          children: [
+            CustomInput(
+              color: colorTheme,
+              hintText: AppLocalizations.of(context)!.search_placeholder,
+              hintStyle: textThemePrimary.labelMedium!
+                  .copyWith(color: colorTheme.withOpacity(opacity5)),
+              fontSize: 12,
+              isCenter: false,
+            ),
+            ...actionItems,
+            // ActionItem(
+            //   text: AppLocalizations.of(context)!.item_newFriend,
+            //   icon: EvaIcons.personAddOutline,
+            //   iconColor: colorTheme,
+            //   textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
+            //   callback: () {},
+            //   bottomBorder: true,
+            // ),
+            // ActionItem(
+            //   text: AppLocalizations.of(context)!.item_groupManager,
+            //   icon: EvaIcons.personOutline,
+            //   iconColor: colorTheme,
+            //   textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
+            //   callback: () {},
+            //   bottomBorder: true,
+            // ),
+            // ActionItem(
+            //   text: AppLocalizations.of(context)!.item_categoryManager,
+            //   icon: EvaIcons.options2Outline,
+            //   iconColor: colorTheme,
+            //   textStyle: textThemePrimary.labelMedium!.copyWith(color: colorMain),
+            //   callback: () {},
+            //   bottomBorder: true,
+            // ),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: CustomScrollView(
+                      controller: _scrollController,
+                      slivers: [
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, blockIndex) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        16, 16, 16, 0),
+                                    child: Text(
+                                      contactBlocks[blockIndex].blockName,
+                                      style: textThemePrimary.titleSmall!
+                                          .copyWith(color: colorMain),
+                                    ),
                                   ),
-                                ),
-                                ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount:
-                                      contactBlocks[blockIndex].users.length,
-                                  itemBuilder: (context, userIndex) {
-                                    return ListTile(
-                                      leading: CircleAvatar(
-                                        backgroundImage: AssetImage(
-                                            contactBlocks[blockIndex]
-                                                .users[userIndex]
-                                                .avatar),
-                                      ),
-                                      title: Text(
-                                        contactBlocks[blockIndex]
-                                            .users[userIndex]
-                                            .nickname,
-                                        style: textThemePrimary.bodySmall!
-                                            .copyWith(color: colorMain),
-                                      ),
-                                      subtitle: Container(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            0, 0, 0, 5),
-                                        decoration: BoxDecoration(
-                                          border: Border(
-                                            bottom: BorderSide(
-                                              color: colorGrey
-                                                  .withOpacity(opacity1),
-                                            ),
-                                          ),
+                                  ListView.builder(
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount:
+                                        contactBlocks[blockIndex].users.length,
+                                    itemBuilder: (context, userIndex) {
+                                      return ListTile(
+                                        leading: CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                              contactBlocks[blockIndex]
+                                                  .users[userIndex]
+                                                  .avatar),
                                         ),
-                                        child: Text(
+                                        title: Text(
                                           contactBlocks[blockIndex]
                                               .users[userIndex]
-                                              .categoryName,
-                                          style: textThemePrimary.labelSmall!
-                                              .copyWith(color: colorSub2),
+                                              .nickname,
+                                          style: textThemePrimary.bodySmall!
+                                              .copyWith(color: colorMain),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                          childCount: contactBlocks.length,
+                                        subtitle: Container(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              0, 0, 0, 5),
+                                          decoration: BoxDecoration(
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                color: colorGrey
+                                                    .withOpacity(opacity1),
+                                              ),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            contactBlocks[blockIndex]
+                                                .users[userIndex]
+                                                .categoryName,
+                                            style: textThemePrimary.labelSmall!
+                                                .copyWith(color: colorSub2),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                            childCount: contactBlocks.length,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                AlphabetSideBar(
-                  callback: _selectLetter,
-                  letters: _getBlockNames(users),
-                  location: AlignmentLocation.center,
-                ),
-              ],
+                  AlphabetSideBar(
+                    callback: _selectLetter,
+                    letters: _getBlockNames(users),
+                    location: AlignmentLocation.center,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
