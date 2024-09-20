@@ -74,7 +74,9 @@ class _ChatInfoPageState extends State<ChatInfoPage> {
       MenuItem(
         title: AppLocalizations.of(context)!.chat_setBackground,
         backgroundColor: colorWhite,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pushNamed(routerSetBackgroundWay);
+        },
         trailing: Icon(
           EvaIcons.chevronRightOutline,
           size: 30,
@@ -137,7 +139,10 @@ class _ChatInfoPageState extends State<ChatInfoPage> {
               height: 10,
               color: colorWhite,
             ),
-            BuildUtil.buildPhotoGallery(List.unmodifiable([widget.args.user])),
+            BuildUtil.buildPhotoGallery(
+              List.unmodifiable([widget.args.user]),
+              0,
+            ),
             const SizedBox(height: 7),
             ...actionItems,
           ],

@@ -7,6 +7,7 @@ import 'model/router/navigation_args.dart';
 import 'model/router/chat_args.dart';
 import 'model/router/chat_info_args.dart';
 import 'model/router/group_args.dart';
+import 'model/router/group_info_args.dart';
 import 'model/router/navigation_title_args.dart';
 import '/model/component/enumeration/contact_type.dart';
 import 'shared/constant.dart';
@@ -21,6 +22,9 @@ import 'page/start/login_password.dart';
 import 'page/chat/chat.dart';
 import 'page/chat/chat_info.dart';
 import 'page/group/group.dart';
+import 'page/group/group_info.dart';
+import 'page/setting/set_background_way.dart';
+import 'page/setting/choose_background.dart';
 
 part 'shared/router.dart';
 

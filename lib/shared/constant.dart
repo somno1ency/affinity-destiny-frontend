@@ -17,7 +17,8 @@ const String routerSingleSearch = 'singleSearch';
 const String routerGroupChat = 'groupChat';
 const String routerGroupDetail = 'groupDetail';
 const String routerGroupMemberDetail = 'groupMemberDetail';
-const String routerSetBackground = 'setBackGround';
+const String routerSetBackgroundWay = 'setBackGroundWay';
+const String routerChooseBackground = 'chooseBackground';
 
 // 3.color definition
 const Color colorTheme = Colors.teal;
@@ -30,6 +31,7 @@ const Color colorChatSub = Color(0xff969696);
 const Color colorWhite = Colors.white;
 const Color colorBlack = Colors.black;
 const Color colorGrey = Colors.grey;
+const Color colorRed = Colors.red;
 const Color colorTransparent = Colors.transparent;
 
 // 3.opacity definition

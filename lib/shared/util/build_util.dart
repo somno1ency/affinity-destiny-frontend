@@ -261,24 +261,29 @@ class BuildUtil {
     );
   }
 
-  static Widget buildPhotoGallery(List<User> users) {
+  static Widget buildPhotoGallery(List<User> users, int showCount) {
+    int length = users.length;
     List<Widget> photos = [];
-    for (var user in users) {
+    for (int i = 0; i < length; i++) {
+      if (showCount > 0 && i == showCount) {
+        break;
+      }
+
       Widget current = Container(
         color: colorWhite,
         child: Column(
           children: [
-            user.avatar != ''
+            users[i].avatar != ''
                 ? Container(
                     height: 50,
                     width: 50,
                     margin:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(25),
                       image: DecorationImage(
                         image: AssetImage(
-                          user.avatar,
+                          users[i].avatar,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -291,18 +296,18 @@ class BuildUtil {
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                     decoration: BoxDecoration(
                       color: colorSub2.withOpacity(opacity3),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                     child: Center(
                       child: Text(
-                        user.nickname[0],
+                        users[i].nickname[0],
                         style: textThemePrimary.bodyMedium!
                             .copyWith(color: colorTheme.withOpacity(opacity5)),
                       ),
                     ),
                   ),
             Text(
-              user.nickname,
+              users[i].nickname,
               style: textThemePrimary.labelSmall!.copyWith(color: colorSub2),
             ),
           ],
@@ -320,7 +325,7 @@ class BuildUtil {
         border: Border.all(
           color: colorSub1.withOpacity(opacity6),
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: const Icon(
         EvaIcons.plus,

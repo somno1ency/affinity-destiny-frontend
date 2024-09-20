@@ -52,5 +52,12 @@
     "chatMenu_file": "文 件",
     "chatMenu_location": "位 置",
     "chatMenu_redPacket": "红 包",
-    "chatMenu_card": "名 片"
+    "chatMenu_card": "名 片",
+    "group_allMember": "查看全部成员",
+    "group_groupName": "群聊名称",
+    "group_qrCode": "群二维码",
+    "group_remark": "备注",
+    "group_myName": "我在本群的昵称",
+    "group_showNickname": "显示群成员昵称",
+    "group_quit": "退出群聊"
 }

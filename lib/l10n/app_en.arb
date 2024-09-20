@@ -52,5 +52,12 @@
     "chatMenu_file": "File",
     "chatMenu_location": "Location",
     "chatMenu_redPacket": "Red Packet",
-    "chatMenu_card": "Visiting Card"
+    "chatMenu_card": "Visiting Card",
+    "group_allMember": "All Members",
+    "group_groupName": "Group Name",
+    "group_qrCode": "Group QR Code",
+    "group_remark": "Remark",
+    "group_myName": "Nickname of Group",
+    "group_showNickname": "Show Nickname of Member",
+    "group_quit": "Quit Group"
 }

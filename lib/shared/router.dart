@@ -53,8 +53,10 @@ Map<String, WidgetBuilder> get routeMap => {
           args: ModalRoute.of(context)!.settings.arguments as ChatInfoArgs),
       routerGroupChat: (context) => GroupPage(
           args: ModalRoute.of(context)!.settings.arguments as GroupArgs),
-      // routerGroupDetail: (context) =>
-      //     const AppNavigationPage(args: args),
+      routerGroupDetail: (context) => GroupInfoPage(
+          args: ModalRoute.of(context)!.settings.arguments as GroupInfoArgs),
       // routerGroupMemberDetail: (context) =>
       //     const AppNavigationPage(args: args),
+      routerSetBackgroundWay: (context) => const SetBackgroundWayPage(),
+      routerChooseBackground: (context) => const ChooseBackgroundPage(),
     };

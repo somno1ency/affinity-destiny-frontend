@@ -1,3 +1,4 @@
+import 'package:affinity_destiny/model/router/group_info_args.dart';
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:ionicons/ionicons.dart';
@@ -10,6 +11,8 @@ import '../../component/chat/chat_input_bar.dart';
 import '../../model/router/group_args.dart';
 import '../../model/component/enumeration/message_type.dart';
 import '../../model/component/chat_msg.dart';
+import '../../model/orm/group.dart';
+import '../../model/orm/user.dart';
 import '../../shared/util/build_util.dart';
 import '../../shared/constant.dart';
 
@@ -52,7 +55,13 @@ class _GroupPageState extends State<GroupPage> {
             ),
             color: colorWhite,
             onPressed: () {
-              _toggleBottomMenu();
+              Navigator.of(context).pushNamed(
+                routerGroupDetail,
+                arguments: GroupInfoArgs(
+                  user: widget.args.currentUser,
+                  group: widget.args.targetGroup,
+                ),
+              );
             },
           ),
         ],
