@@ -17,6 +17,10 @@ const String routerSingleSearch = 'singleSearch';
 const String routerGroupChat = 'groupChat';
 const String routerGroupDetail = 'groupDetail';
 const String routerGroupMemberDetail = 'groupMemberDetail';
+const String routerGroupSetName = "groupSetName";
+const String routerGroupQrCode = "groupQrCode";
+const String routerGroupSetRemark = "groupSetRemark";
+const String routerGroupSetNickname = "groupSetNickname";
 const String routerSetBackgroundWay = 'setBackGroundWay';
 const String routerChooseBackground = 'chooseBackground';
 

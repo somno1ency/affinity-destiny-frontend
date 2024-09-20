@@ -9,7 +9,6 @@ import '../../component/chat/chat_item.dart';
 import '../../component/chat/chat_input_bar.dart';
 import '../../model/component/enumeration/message_type.dart';
 import '../../model/component/chat_msg.dart';
-import '../../model/orm/user.dart';
 import '../../model/orm/user_contact.dart';
 import '../../model/router/chat_args.dart';
 import '../../model/router/chat_info_args.dart';

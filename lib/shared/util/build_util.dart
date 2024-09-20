@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import '../constant.dart';

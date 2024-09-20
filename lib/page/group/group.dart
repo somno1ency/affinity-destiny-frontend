@@ -11,8 +11,6 @@ import '../../component/chat/chat_input_bar.dart';
 import '../../model/router/group_args.dart';
 import '../../model/component/enumeration/message_type.dart';
 import '../../model/component/chat_msg.dart';
-import '../../model/orm/group.dart';
-import '../../model/orm/user.dart';
 import '../../shared/util/build_util.dart';
 import '../../shared/constant.dart';
 

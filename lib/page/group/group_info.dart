@@ -54,7 +54,12 @@ class _GroupInfoPageState extends State<GroupInfoPage> {
       MenuItem(
         title: AppLocalizations.of(context)!.group_groupName,
         backgroundColor: colorWhite,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pushNamed(
+            routerGroupSetName,
+            arguments: widget.args.group,
+          );
+        },
         trailing: SizedBox(
           width: trailingWidth,
           child: Row(
@@ -77,7 +82,12 @@ class _GroupInfoPageState extends State<GroupInfoPage> {
       MenuItem(
         title: AppLocalizations.of(context)!.group_qrCode,
         backgroundColor: colorWhite,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pushNamed(
+            routerGroupQrCode,
+            arguments: widget.args.group,
+          );
+        },
         trailing: SizedBox(
           width: trailingWidth,
           child: Row(
@@ -101,7 +111,12 @@ class _GroupInfoPageState extends State<GroupInfoPage> {
       MenuItem(
         title: AppLocalizations.of(context)!.group_remark,
         backgroundColor: colorWhite,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pushNamed(
+            routerGroupSetRemark,
+            arguments: widget.args.group,
+          );
+        },
         trailing: Icon(
           EvaIcons.chevronRightOutline,
           size: 30,
@@ -142,7 +157,12 @@ class _GroupInfoPageState extends State<GroupInfoPage> {
       MenuItem(
         title: AppLocalizations.of(context)!.group_myName,
         backgroundColor: colorWhite,
-        callback: () {},
+        callback: () {
+          Navigator.of(context).pushNamed(
+            routerGroupSetNickname,
+            arguments: widget.args.group,
+          );
+        },
         trailing: SizedBox(
           width: trailingWidth,
           child: Row(
@@ -249,7 +269,12 @@ class _GroupInfoPageState extends State<GroupInfoPage> {
             BuildUtil.buildPhotoGallery(_fakeUsers, _showCount),
             if (_fakeUsers.length > _showCount)
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    routerGroupMemberDetail,
+                    arguments: _fakeUsers,
+                  );
+                },
                 child: Container(
                   height: 30,
                   width: double.infinity,

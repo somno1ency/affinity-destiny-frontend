@@ -3,6 +3,7 @@
     "app_title": "睦*缘",
     "system_ok": "完成",
     "system_cancel": "取消",
+    "system_savePicture": "保存图片",
     "navMenu_singleChat": "聊天",
     "navMenu_groupChat": "群聊",
     "navMenu_contact": "通讯录",
@@ -54,10 +55,16 @@
     "chatMenu_redPacket": "红 包",
     "chatMenu_card": "名 片",
     "group_allMember": "查看全部成员",
+    "group_viewAllMember": "群成员",
     "group_groupName": "群聊名称",
     "group_qrCode": "群二维码",
     "group_remark": "备注",
     "group_myName": "我在本群的昵称",
     "group_showNickname": "显示群成员昵称",
-    "group_quit": "退出群聊"
+    "group_quit": "退出群聊",
+    "group_modifyGroupName": "群聊名称",
+    "group_modifyGroupNameTips": "修改群聊名称后,将在群内通知其他成员",
+    "group_modifyQrCodeTips": "该二维码7天内({date})有效,重新进入将更新",
+    "group_modifyRemarkTips": "群聊的备注仅自己可见",
+    "group_modifyNicknameTips": "昵称修改后,只会在此群内显示,群内成员都可以看见"
 }

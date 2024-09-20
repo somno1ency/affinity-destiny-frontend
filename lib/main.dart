@@ -9,7 +9,9 @@ import 'model/router/chat_info_args.dart';
 import 'model/router/group_args.dart';
 import 'model/router/group_info_args.dart';
 import 'model/router/navigation_title_args.dart';
-import '/model/component/enumeration/contact_type.dart';
+import 'model/component/enumeration/contact_type.dart';
+import 'model/orm/user.dart';
+import 'model/orm/group.dart';
 import 'shared/constant.dart';
 
 import 'page/start/app_navigation.dart';
@@ -23,6 +25,11 @@ import 'page/chat/chat.dart';
 import 'page/chat/chat_info.dart';
 import 'page/group/group.dart';
 import 'page/group/group_info.dart';
+import 'page/group/curd/group_member.dart';
+import 'page/group/curd/group_name.dart';
+import 'page/group/curd/group_qr_code.dart';
+import 'page/group/curd/group_remark.dart';
+import 'page/group/curd/group_nickname.dart';
 import 'page/setting/set_background_way.dart';
 import 'page/setting/choose_background.dart';
 

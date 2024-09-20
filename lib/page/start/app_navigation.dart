@@ -5,8 +5,6 @@ import 'package:ionicons/ionicons.dart';
 import '../../component/shared/app_bottom_bar.dart';
 import '../../model/component/navigation_menu.dart';
 import '../../model/router/navigation_args.dart';
-import '../../model/router/contact_category.dart';
-import '../../model/router/navigation_title_args.dart';
 import '../../page/chat/chat_list.dart';
 import '../../page/group/group_list.dart';
 import '../../page/contact/contact_user.dart';

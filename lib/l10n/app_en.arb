@@ -3,6 +3,7 @@
     "app_title": "Affinity Destiny",
     "system_ok": "OK",
     "system_cancel": "Cancel",
+    "system_savePicture": "Save Picture",
     "navMenu_singleChat": "Chat",
     "navMenu_groupChat": "Group",
     "navMenu_contact": "Contact",
@@ -54,10 +55,16 @@
     "chatMenu_redPacket": "Red Packet",
     "chatMenu_card": "Visiting Card",
     "group_allMember": "All Members",
+    "group_viewAllMember": "All Members",
     "group_groupName": "Group Name",
     "group_qrCode": "Group QR Code",
     "group_remark": "Remark",
     "group_myName": "Nickname of Group",
     "group_showNickname": "Show Nickname of Member",
-    "group_quit": "Quit Group"
+    "group_quit": "Quit Group",
+    "group_modifyGroupName": "Change Group Name",
+    "group_modifyGroupNameTips": "After changing the group name, other members will be notified within the group",
+    "group_modifyQrCodeTips": "This QR code is valid for ({date}) within 7 days and will be updated upon re-entry",
+    "group_modifyRemarkTips": "The remark in group chats are only visible to oneself",
+    "group_modifyNicknameTips": "After the nickname is modified, it will only be displayed within this group, and all members in the group can see it"
 }

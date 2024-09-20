@@ -55,8 +55,16 @@ Map<String, WidgetBuilder> get routeMap => {
           args: ModalRoute.of(context)!.settings.arguments as GroupArgs),
       routerGroupDetail: (context) => GroupInfoPage(
           args: ModalRoute.of(context)!.settings.arguments as GroupInfoArgs),
-      // routerGroupMemberDetail: (context) =>
-      //     const AppNavigationPage(args: args),
+      routerGroupMemberDetail: (context) => GroupMemberPage(
+          users: ModalRoute.of(context)!.settings.arguments as List<User>),
+      routerGroupSetName: (context) => GroupNamePage(
+          group: ModalRoute.of(context)!.settings.arguments as Group),
+      routerGroupQrCode: (context) => GroupQrCodePage(
+          group: ModalRoute.of(context)!.settings.arguments as Group),
+      routerGroupSetRemark: (context) => GroupRemarkPage(
+          group: ModalRoute.of(context)!.settings.arguments as Group),
+      routerGroupSetNickname: (context) => GroupNicknamePage(
+          group: ModalRoute.of(context)!.settings.arguments as Group),
       routerSetBackgroundWay: (context) => const SetBackgroundWayPage(),
       routerChooseBackground: (context) => const ChooseBackgroundPage(),
     };

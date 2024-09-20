@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../component/chat/app_chat_bar.dart';
 import '../../model/component/menu_item.dart';
-import '../../model/orm/user.dart';
 import '../../model/router/chat_info_args.dart';
 import '../../shared/util/build_util.dart';
 import '../../shared/constant.dart';
