@@ -109,6 +109,7 @@ class _ContactUserPageState extends State<ContactUserPage> {
         ],
       ),
       body: Material(
+        color: colorWhite.withOpacity(opacity95),
         child: Column(
           children: [
             CustomInput(

@@ -30,9 +30,10 @@ class ChatListItem extends StatelessWidget {
           horizontal: 10,
         ),
         decoration: BoxDecoration(
+          color: colorWhite,
           border: Border(
             bottom: BorderSide(
-              color: colorTheme.withOpacity(opacity1),
+              color: colorGrey.withOpacity(opacity1),
             ),
           ),
         ),
@@ -113,7 +114,7 @@ class ChatListItem extends StatelessWidget {
         Icon(
           icon,
           size: 14,
-          color: colorTheme,
+          color: colorTheme.withOpacity(opacity8),
         ),
       ],
     );

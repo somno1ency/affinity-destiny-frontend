@@ -67,4 +67,5 @@ Map<String, WidgetBuilder> get routeMap => {
           group: ModalRoute.of(context)!.settings.arguments as Group),
       routerSetBackgroundWay: (context) => const SetBackgroundWayPage(),
       routerChooseBackground: (context) => const ChooseBackgroundPage(),
+      routerSetting: (context) => const SettingPage(),
     };

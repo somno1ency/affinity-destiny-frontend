@@ -30,8 +30,9 @@ import 'page/group/curd/group_name.dart';
 import 'page/group/curd/group_qr_code.dart';
 import 'page/group/curd/group_remark.dart';
 import 'page/group/curd/group_nickname.dart';
-import 'page/setting/set_background_way.dart';
-import 'page/setting/choose_background.dart';
+import 'page/me/setting.dart';
+import 'page/shared/set_background_way.dart';
+import 'page/shared/choose_background.dart';
 
 part 'shared/router.dart';
 

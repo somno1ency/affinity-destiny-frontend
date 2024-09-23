@@ -23,6 +23,7 @@ const String routerGroupSetRemark = "groupSetRemark";
 const String routerGroupSetNickname = "groupSetNickname";
 const String routerSetBackgroundWay = 'setBackGroundWay';
 const String routerChooseBackground = 'chooseBackground';
+const String routerSetting = 'setting';
 
 // 3.color definition
 const Color colorTheme = Colors.teal;
@@ -88,6 +89,11 @@ final regSpecial = RegExp(r'[^a-zA-Z\u4e00-\u9fa5]');
 
 // 6.text theme definition
 const TextTheme textThemePrimary = TextTheme(
+  titleMedium: TextStyle(
+    fontSize: 20,
+    fontFamily: 'Consolas',
+    height: 1,
+  ),
   titleSmall: TextStyle(
     fontSize: 16,
     fontFamily: 'Consolas',

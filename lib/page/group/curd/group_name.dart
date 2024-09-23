@@ -16,6 +16,9 @@ class GroupNamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double mainWidth = MediaQuery.of(context).size.width * 0.8;
+    double subWidth = MediaQuery.of(context).size.width * 0.6;
+
     return Scaffold(
       appBar: AppChatBar(
         title: AppLocalizations.of(context)!.group_modifyGroupName,
@@ -47,7 +50,7 @@ class GroupNamePage extends StatelessWidget {
                 Center(
                   child: Container(
                     height: 50,
-                    width: MediaQuery.of(context).size.width * 0.8,
+                    width: mainWidth,
                     decoration: BoxDecoration(
                       border: Border(
                         top: BorderSide(
@@ -70,7 +73,7 @@ class GroupNamePage extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         SizedBox(
-                          width: 50,
+                          width: subWidth,
                           child: TextField(
                             cursorColor: colorTheme,
                             decoration: InputDecoration(

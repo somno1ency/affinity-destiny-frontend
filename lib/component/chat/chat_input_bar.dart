@@ -25,7 +25,7 @@ class _ChatInputBarState extends State<ChatInputBar> {
       height: 49,
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: colorTheme.withOpacity(opacity4)),
+          top: BorderSide(color: colorTheme.withOpacity(opacity3)),
         ),
       ),
       padding: const EdgeInsets.all(4),
@@ -39,7 +39,7 @@ class _ChatInputBarState extends State<ChatInputBar> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: colorTheme.withOpacity(opacity4),
+                  color: colorTheme.withOpacity(opacity3),
                 ),
               ),
               child: TextField(

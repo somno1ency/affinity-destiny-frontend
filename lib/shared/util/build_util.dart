@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import '../constant.dart';
+import '../../model/component/chat_bottom_menu_item.dart';
 import '../../model/orm/user.dart';
+import '../constant.dart';
 
 class BuildUtil {
   const BuildUtil._();
@@ -35,11 +36,120 @@ class BuildUtil {
   }
 
   static Widget buildChatBottomMenu(BuildContext context) {
+    List<ChatBottomMenuItem> firstRowItems = [
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_photo,
+        callback: () {
+          print(1111);
+        },
+        icon: EvaIcons.imageOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_takePhoto,
+        callback: () {},
+        icon: EvaIcons.cameraOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_video,
+        callback: () {},
+        icon: EvaIcons.videoOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_voice,
+        callback: () {},
+        icon: EvaIcons.phoneCallOutline,
+      ),
+    ];
+    List<ChatBottomMenuItem> secondRowItems = [
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_file,
+        callback: () {},
+        icon: EvaIcons.folderOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_location,
+        callback: () {},
+        icon: EvaIcons.pinOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_redPacket,
+        callback: () {},
+        icon: EvaIcons.archiveOutline,
+      ),
+      ChatBottomMenuItem(
+        name: AppLocalizations.of(context)!.chatMenu_card,
+        callback: () {},
+        icon: EvaIcons.personOutline,
+      ),
+    ];
+    List<Widget> firstRowActionItems = [];
+    List<Widget> secondRowActionItems = [];
+    for (var item in firstRowItems) {
+      firstRowActionItems.add(
+        GestureDetector(
+          onTap: item.callback,
+          child: Column(
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                margin: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(color: colorGrey.withOpacity(opacity4)),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Icon(
+                  item.icon,
+                  size: 30,
+                  color: colorSub1,
+                ),
+              ),
+              Text(
+                item.name,
+                style: textThemePrimary.labelSmall!.copyWith(color: colorSub1),
+              ),
+              const SizedBox(height: 5),
+            ],
+          ),
+        ),
+      );
+    }
+    for (var item in secondRowItems) {
+      secondRowActionItems.add(
+        GestureDetector(
+          onTap: item.callback,
+          child: Column(
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                margin: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(color: colorGrey.withOpacity(opacity4)),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Icon(
+                  item.icon,
+                  size: 30,
+                  color: colorSub1,
+                ),
+              ),
+              Text(
+                item.name,
+                style: textThemePrimary.labelSmall!.copyWith(color: colorSub1),
+              ),
+              const SizedBox(height: 5),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Container(
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: colorTheme.withOpacity(opacity4),
+            color: colorTheme.withOpacity(opacity3),
           ),
         ),
       ),
@@ -47,213 +157,11 @@ class BuildUtil {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.imageOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_photo,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.cameraOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_takePhoto,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.videoOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_video,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.phoneCallOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_voice,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-            ],
+            children: [...firstRowActionItems],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.folderOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_file,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.pinOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_location,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.archiveOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_redPacket,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border:
-                          Border.all(color: colorTheme.withOpacity(opacity4)),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      EvaIcons.personOutline,
-                      size: 30,
-                      color: colorTheme,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.chatMenu_card,
-                    style: textThemePrimary.labelSmall!
-                        .copyWith(color: colorTheme),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
-            ],
+            children: [...secondRowActionItems],
           ),
         ],
       ),

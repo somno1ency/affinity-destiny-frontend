@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/constant.dart';
+
 class CustomInput extends StatelessWidget {
   final Color color;
   final double width;
@@ -38,7 +40,12 @@ class CustomInput extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        border: Border.all(color: color),
+        color: colorWhite,
+        border: Border(
+          bottom: BorderSide(
+            color: colorTheme.withOpacity(opacity3),
+          ),
+        ),
       ),
       child: TextField(
         textAlign: isCenter ? TextAlign.center : TextAlign.start,

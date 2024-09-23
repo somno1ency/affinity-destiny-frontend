@@ -5,9 +5,12 @@ import 'package:ionicons/ionicons.dart';
 import '../../component/shared/app_bottom_bar.dart';
 import '../../model/component/navigation_menu.dart';
 import '../../model/router/navigation_args.dart';
+
 import '../../page/chat/chat_list.dart';
 import '../../page/group/group_list.dart';
 import '../../page/contact/contact_user.dart';
+import '../../page/discovery/discovery.dart';
+import '../../page/me/profile.dart';
 
 class AppNavigationPage extends StatefulWidget {
   final NavigationArgs args;
@@ -81,8 +84,8 @@ class _AppNavigationPageState extends State<AppNavigationPage> {
         ChatListPage(title: widget.args.args0.topTitle),
         GroupListPage(title: widget.args.args1.topTitle),
         ContactUserPage(category: widget.args.args2),
-        ChatListPage(title: widget.args.args3.topTitle),
-        ChatListPage(title: widget.args.args4.topTitle),
+        DiscoveryPage(title: widget.args.args3.topTitle),
+        ProfilePage(title: widget.args.args4.topTitle),
       ],
     );
   }
