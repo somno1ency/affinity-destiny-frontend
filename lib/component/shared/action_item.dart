@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class ActionItem extends StatelessWidget {
   final String? text;
@@ -31,7 +31,9 @@ class ActionItem extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
               bottom: bottomBorder
-                  ? BorderSide(color: colorGrey.withOpacity(opacity1))
+                  ? BorderSide(
+                      color: AppConstant.colorGrey
+                          .withOpacity(AppConstant.opacity1))
                   : BorderSide.none),
         ),
         child: Row(
@@ -40,7 +42,7 @@ class ActionItem extends StatelessWidget {
               Icon(
                 icon,
                 size: size ?? 24,
-                color: iconColor ?? colorGrey,
+                color: iconColor ?? AppConstant.colorGrey,
               ),
             const SizedBox(width: 12),
             if (text != null)

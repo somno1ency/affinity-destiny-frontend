@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -22,7 +22,8 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
     if (icon == null) {
       customTitle = Text(
         title,
-        style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
+        style: AppConstant.textThemePrimary.titleSmall!
+            .copyWith(color: AppConstant.colorWhite),
       );
     } else {
       customTitle = Row(
@@ -30,12 +31,13 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Text(
             title,
-            style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
+            style: AppConstant.textThemePrimary.titleSmall!
+                .copyWith(color: AppConstant.colorWhite),
           ),
           const SizedBox(width: 8),
           Icon(
             icon,
-            color: colorWhite,
+            color: AppConstant.colorWhite,
             size: 16,
           ),
         ],
@@ -49,7 +51,7 @@ class AppChatBar extends StatelessWidget implements PreferredSizeWidget {
       title: customTitle,
       actions: actions,
       centerTitle: true,
-      backgroundColor: colorTheme,
+      backgroundColor: AppConstant.colorTheme,
     );
   }
 

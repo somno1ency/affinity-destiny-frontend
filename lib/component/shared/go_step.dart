@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class GoStep extends StatelessWidget {
   final String tips;
@@ -26,13 +26,13 @@ class GoStep extends StatelessWidget {
           icon: Icon(icon),
           onPressed: callback,
           iconSize: iconSize,
-          color: colorTheme,
+          color: AppConstant.colorTheme,
         ),
         Text(
           tips,
           style: TextStyle(
             fontSize: tipsSize,
-            color: colorTheme,
+            color: AppConstant.colorTheme,
           ),
         ),
       ],

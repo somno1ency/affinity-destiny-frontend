@@ -2,7 +2,7 @@ class UserContact {
   final int id;
   final int ownerId;
   final int dstId;
-  // TODO need to add to table for record the specific settings for each user
+  // TODO: need to add the below fields to table for record the specific settings for each user
   final bool isDisturb;
   final bool isTop;
   final bool isRemind;

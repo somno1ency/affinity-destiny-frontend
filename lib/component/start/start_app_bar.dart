@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -20,18 +20,19 @@ class StartAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       title: Text(
         title,
-        style: textThemePrimary.titleSmall!.copyWith(color: colorWhite),
+        style: AppConstant.textThemePrimary.titleSmall!
+            .copyWith(color: AppConstant.colorWhite),
       ),
       leading: IconButton(
         icon: const Icon(
           EvaIcons.arrowBack,
-          color: colorWhite,
+          color: AppConstant.colorWhite,
           size: 24,
         ),
         onPressed: callback,
       ),
       centerTitle: false,
-      backgroundColor: colorTheme,
+      backgroundColor: AppConstant.colorTheme,
     );
   }
 

@@ -12,9 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_langdetect: ^0.0.2
-  flutter_localizations:
-    sdk: flutter
-  intl: any
+  get: ^4.6.6
   ionicons: ^0.2.2
   pinyin: ^3.3.0
   wrapper: ^1.0.2

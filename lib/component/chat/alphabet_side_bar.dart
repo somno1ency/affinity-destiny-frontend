@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../model/component/enumeration/alignment_location.dart';
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/model/enumeration/alignment_location.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class AlphabetSideBar extends StatelessWidget {
   final ValueChanged<String> callback;
@@ -51,11 +51,12 @@ class AlphabetSideBar extends StatelessWidget {
                     child: Container(
                       width: 18,
                       height: 18,
-                      color: colorTheme.withOpacity(opacity1),
+                      color: AppConstant.colorTheme
+                          .withOpacity(AppConstant.opacity1),
                       child: Center(
                         child: Text(
                           _letters[index][0],
-                          style: textTheme.labelSmall,
+                          style: AppConstant.textTheme.labelSmall,
                         ),
                       ),
                     ),

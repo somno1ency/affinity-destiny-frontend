@@ -1,4 +1,4 @@
-import '../orm/user.dart';
+import 'package:affinity_destiny/model/orm/user.dart';
 
 class ContactBlock {
   // contact user display by group will be two kind:

@@ -1,4 +1,4 @@
-import '../orm/group.dart';
+import 'package:affinity_destiny/model/orm/group.dart';
 
 class GroupBlock {
   // group display by group will be two kind:

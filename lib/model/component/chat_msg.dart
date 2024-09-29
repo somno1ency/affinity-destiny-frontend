@@ -1,4 +1,4 @@
-import 'enumeration/message_type.dart';
+import 'package:affinity_destiny/model/enumeration/message_type.dart';
 
 class ChatMsg {
   final String? avatar;

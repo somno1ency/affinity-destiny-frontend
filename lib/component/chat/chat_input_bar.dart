@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class ChatInputBar extends StatefulWidget {
   final TextEditingController controller;
@@ -25,7 +25,8 @@ class _ChatInputBarState extends State<ChatInputBar> {
       height: 49,
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: colorTheme.withOpacity(opacity3)),
+          top: BorderSide(
+              color: AppConstant.colorTheme.withOpacity(AppConstant.opacity3)),
         ),
       ),
       padding: const EdgeInsets.all(4),
@@ -39,12 +40,13 @@ class _ChatInputBarState extends State<ChatInputBar> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: colorTheme.withOpacity(opacity3),
+                  color:
+                      AppConstant.colorTheme.withOpacity(AppConstant.opacity3),
                 ),
               ),
               child: TextField(
-                cursorColor: colorTheme,
-                style: textThemePrimary.bodySmall,
+                cursorColor: AppConstant.colorTheme,
+                style: AppConstant.textThemePrimary.bodySmall,
                 controller: widget.controller,
                 decoration: const InputDecoration(
                   border: InputBorder.none,

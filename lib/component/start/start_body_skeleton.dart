@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class StartBodySkeleton extends StatelessWidget {
   final String tips;
@@ -19,20 +20,19 @@ class StartBodySkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: colorTheme,
+      color: AppConstant.colorTheme,
       child: AnimatedBuilder(
         animation: animation,
         builder: (context, child) {
           return Transform.translate(
-            offset: Offset(
-                0, MediaQuery.of(context).size.height * (1 - animation.value)),
+            offset: Offset(0, Get.height * (1 - animation.value)),
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
                   topRight: Radius.circular(50),
                 ),
-                color: colorWhite,
+                color: AppConstant.colorWhite,
               ),
               // color: colorWhite,
               child: Column(
@@ -44,8 +44,8 @@ class StartBodySkeleton extends StatelessWidget {
                       children: [
                         Text(
                           tips,
-                          style: textThemePrimary.labelLarge!
-                              .copyWith(color: colorTheme),
+                          style: AppConstant.textThemePrimary.labelLarge!
+                              .copyWith(color: AppConstant.colorTheme),
                         ),
                         const SizedBox(height: 100),
                         body,

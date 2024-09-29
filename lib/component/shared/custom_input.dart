@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class CustomInput extends StatelessWidget {
   final Color color;
@@ -40,10 +40,10 @@ class CustomInput extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: colorWhite,
+        color: AppConstant.colorWhite,
         border: Border(
           bottom: BorderSide(
-            color: colorTheme.withOpacity(opacity3),
+            color: AppConstant.colorTheme.withOpacity(AppConstant.opacity3),
           ),
         ),
       ),

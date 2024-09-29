@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/constant.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 class RadiusInput extends StatelessWidget {
   final double sideWidth;
@@ -38,7 +38,7 @@ class RadiusInput extends StatelessWidget {
               width: sideWidth,
               height: height,
               decoration: BoxDecoration(
-                border: Border.all(color: colorTheme),
+                border: Border.all(color: AppConstant.colorTheme),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(radius),
                   bottomLeft: Radius.circular(radius),
@@ -51,12 +51,12 @@ class RadiusInput extends StatelessWidget {
               height: height,
               decoration: const BoxDecoration(
                 border: Border(
-                  top: BorderSide(color: colorTheme),
-                  bottom: BorderSide(color: colorTheme),
+                  top: BorderSide(color: AppConstant.colorTheme),
+                  bottom: BorderSide(color: AppConstant.colorTheme),
                 ),
               ),
               child: TextField(
-                cursorColor: colorTheme,
+                cursorColor: AppConstant.colorTheme,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: verticalPadding,
@@ -64,20 +64,22 @@ class RadiusInput extends StatelessWidget {
                   ),
                   border: InputBorder.none,
                   hintText: hintText,
-                  hintStyle: textThemePrimary.labelMedium!.copyWith(
-                    color: Theme.of(context).primaryColor.withOpacity(opacity5),
+                  hintStyle: AppConstant.textThemePrimary.labelMedium!.copyWith(
+                    color: Theme.of(context)
+                        .primaryColor
+                        .withOpacity(AppConstant.opacity5),
                     height: 1,
                   ),
                 ),
-                style:
-                    textThemePrimary.labelMedium!.copyWith(color: colorTheme),
+                style: AppConstant.textThemePrimary.labelMedium!
+                    .copyWith(color: AppConstant.colorTheme),
               ),
             ),
             Container(
               width: sideWidth,
               height: height,
               decoration: BoxDecoration(
-                border: Border.all(color: colorTheme),
+                border: Border.all(color: AppConstant.colorTheme),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(radius),
                   bottomRight: Radius.circular(radius),
