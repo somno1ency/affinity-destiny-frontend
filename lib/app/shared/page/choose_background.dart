@@ -95,17 +95,20 @@ class ChooseBackgroundPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          Wrap(
-            spacing: -20,
-            runSpacing: 10,
-            children: [
-              ...backgrounds,
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: -20,
+              runSpacing: 10,
+              children: [
+                ...backgrounds,
+              ],
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

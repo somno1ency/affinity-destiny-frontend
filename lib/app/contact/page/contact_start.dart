@@ -175,7 +175,7 @@ class ContactStartPage extends GetView<ContactStartController> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+        padding: const EdgeInsets.fromLTRB(0, 0, 25, 45),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
