@@ -7,7 +7,7 @@ import 'package:affinity_destiny/lang/lang_key.dart';
 import 'package:affinity_destiny/component/start/start_app_bar.dart';
 import 'package:affinity_destiny/component/start/start_body_skeleton.dart';
 import 'package:affinity_destiny/component/shared/radius_input.dart';
-import 'package:affinity_destiny/component//shared/go_step.dart';
+import 'package:affinity_destiny/component/shared/go_step.dart';
 import 'package:affinity_destiny/shared/router.dart';
 import 'package:affinity_destiny/shared/constant.dart';
 

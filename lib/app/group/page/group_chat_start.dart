@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:english_words/english_words.dart';
 
 import 'package:affinity_destiny/lang/lang_key.dart';
-import 'package:affinity_destiny/component/chat/app_chat_bar.dart';
-import 'package:affinity_destiny/component/shared/custom_input.dart';
-import 'package:affinity_destiny/component/chat/chat_start_unit.dart';
-import 'package:affinity_destiny/model/orm/group.dart';
-import 'package:affinity_destiny/model/router/group.dart';
 import 'package:affinity_destiny/app/group/controller/group_chat_start.dart';
-import 'package:affinity_destiny/component/shared/app_bottom_bar.dart';
 import 'package:affinity_destiny/app/shared/controller/shared.dart';
+import 'package:affinity_destiny/component/chat/app_chat_bar.dart';
+import 'package:affinity_destiny/component/chat/chat_start_unit.dart';
+import 'package:affinity_destiny/component/shared/custom_input.dart';
+import 'package:affinity_destiny/component/shared/app_bottom_bar.dart';
+import 'package:affinity_destiny/model/component/chat_start_item.dart';
 import 'package:affinity_destiny/shared/util/build.dart';
 import 'package:affinity_destiny/shared/router.dart';
 import 'package:affinity_destiny/shared/constant.dart';
@@ -70,7 +68,7 @@ class GroupChatStartPage extends GetView<GroupChatStartController> {
   }
 
   Widget _buildBody(BuildContext context) {
-    var chatListItems = controller.getChatListItems();
+    var groups = controller.getGroups();
     return Column(
       children: [
         CustomInput(
@@ -83,30 +81,21 @@ class GroupChatStartPage extends GetView<GroupChatStartController> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: chatListItems.length,
+            itemCount: groups.length,
             itemBuilder: (context, index) {
-              int identity = (index % 3) + 1;
               return ChatStartUnit(
-                chatStartItem: chatListItems[index],
+                chatStartItem: ChatStartItem(
+                  name: groups[index].group.name,
+                  avatar: groups[index].group.icon,
+                  isDisturb: groups[index].groupContact.isDisturb,
+                  lastMsg: groups[index].extra.lastMsg,
+                  lastMsgTime: groups[index].extra.lastMsgTime,
+                  unreadCount: groups[index].extra.unreadCount,
+                ),
                 callback: () {
-                  Group targetGroup = Group(
-                    id: index,
-                    ownerId: 1,
-                    groupId: 'xxx',
-                    name: chatListItems[index].name,
-                    category: 1,
-                    // not need to display the icon in chat detail, so this field is not used
-                    icon: identity > 0
-                        ? 'assets/images/avatar/avatar_00$identity.webp'
-                        : '',
-                    memo: WordPair.random().asSnakeCase,
-                  );
-                  Navigator.of(context).pushNamed(
+                  Get.toNamed(
                     AppRouter.groupChatting,
-                    arguments: GroupArgs(
-                      currentUser: SharedController.to.currentUser,
-                      targetGroup: targetGroup,
-                    ),
+                    arguments: groups[index],
                   );
                 },
               );

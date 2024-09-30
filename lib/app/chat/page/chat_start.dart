@@ -1,16 +1,16 @@
-import 'package:affinity_destiny/model/component/chat_start_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import 'package:affinity_destiny/app/chat/controller/chat_start.dart';
 import 'package:affinity_destiny/lang/lang_key.dart';
+import 'package:affinity_destiny/app/chat/controller/chat_start.dart';
 import 'package:affinity_destiny/app/shared/controller/shared.dart';
 import 'package:affinity_destiny/component/chat/app_chat_bar.dart';
-import 'package:affinity_destiny/component/shared/custom_input.dart';
 import 'package:affinity_destiny/component/chat/chat_start_unit.dart';
 import 'package:affinity_destiny/component/shared/app_bottom_bar.dart';
+import 'package:affinity_destiny/component/shared/custom_input.dart';
+import 'package:affinity_destiny/model/component/chat_start_item.dart';
 import 'package:affinity_destiny/shared/util/build.dart';
 import 'package:affinity_destiny/shared/router.dart';
 import 'package:affinity_destiny/shared/constant.dart';
@@ -88,9 +88,9 @@ class ChatStartPage extends GetView<ChatStartController> {
                   name: users[index].user.nickname,
                   avatar: users[index].user.avatar,
                   isDisturb: users[index].userContact.isDisturb,
-                  lastMsg: users[index].lastMsg,
-                  lastMsgTime: users[index].lastMsgTime,
-                  unreadCount: users[index].unreadCount,
+                  lastMsg: users[index].extra.lastMsg,
+                  lastMsgTime: users[index].extra.lastMsgTime,
+                  unreadCount: users[index].extra.unreadCount,
                 ),
                 callback: () {
                   Get.toNamed(

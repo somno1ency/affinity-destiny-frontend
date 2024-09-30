@@ -69,13 +69,6 @@ class MyApp extends StatelessWidget {
       },
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 100),
-      // enableLog: true,
-      // logWriterCallback: localLogWriter,
     );
   }
-
-  // void localLogWriter(String text, {bool isError = false}) {
-  //   print("text: $text");
-  //   print("isError: $isError");
-  // }
 }

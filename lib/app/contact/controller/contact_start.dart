@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:affinity_destiny/lang/lang_key.dart';
-import 'package:affinity_destiny/model/orm/user.dart';
-import 'package:affinity_destiny/model/component/contact_block.dart';
 import 'package:affinity_destiny/model/enumeration/contact_type.dart';
+import 'package:affinity_destiny/model/component/contact_block.dart';
 import 'package:affinity_destiny/model/component/menu_item.dart';
-import 'package:affinity_destiny/shared/constant.dart';
+import 'package:affinity_destiny/model/orm/user.dart';
 import 'package:affinity_destiny/shared/util/lang.dart';
+import 'package:affinity_destiny/shared/constant.dart';
 
 part 'package:affinity_destiny/data/contact_start_data.dart';
 

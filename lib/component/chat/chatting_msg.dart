@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wrapper/wrapper.dart';
 
-import 'package:affinity_destiny/model/component/chat_msg.dart';
 import 'package:affinity_destiny/model/enumeration/message_type.dart';
+import 'package:affinity_destiny/model/component/chat_msg.dart';
 import 'package:affinity_destiny/shared/constant.dart';
 
 class ChattingMsg extends StatelessWidget {

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:affinity_destiny/lang/lang_key.dart';
 import 'package:affinity_destiny/app/contact/controller/contact_start.dart';
 import 'package:affinity_destiny/app/shared/controller/shared.dart';
-import 'package:affinity_destiny/model/enumeration/contact_type.dart';
-import 'package:affinity_destiny/model/enumeration/alignment_location.dart';
 import 'package:affinity_destiny/component/chat/app_chat_bar.dart';
 import 'package:affinity_destiny/component/chat/alphabet_side_bar.dart';
 import 'package:affinity_destiny/component/shared/app_bottom_bar.dart';
 import 'package:affinity_destiny/component/shared/custom_input.dart';
+import 'package:affinity_destiny/model/enumeration/contact_type.dart';
+import 'package:affinity_destiny/model/enumeration/alignment_location.dart';
 import 'package:affinity_destiny/shared/constant.dart';
 
 class ContactStartPage extends GetView<ContactStartController> {

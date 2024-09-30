@@ -5,9 +5,10 @@ import 'dart:math';
 
 import 'package:affinity_destiny/lang/lang_key.dart';
 import 'package:affinity_destiny/app/shared/controller/shared.dart';
+import 'package:affinity_destiny/model/router/chat_start.dart';
+import 'package:affinity_destiny/model/router/chat_start_extra.dart';
 import 'package:affinity_destiny/model/orm/user.dart';
 import 'package:affinity_destiny/model/orm/user_contact.dart';
-import 'package:affinity_destiny/model/router/chat_start.dart';
 
 class ChatStartController extends GetxController {
   final int index = 0;
@@ -41,13 +42,18 @@ class ChatStartController extends GetxController {
         background: '',
       );
 
-      // 3.dynamic msg data
-      users.add(ChatStartArgs(
-        user: user,
-        userContact: userContact,
+      // 3.extra msg data
+      ChatStartExtra extra = ChatStartExtra(
         lastMsg: 'This is my last msg $i...',
         lastMsgTime: 'Yesterday $i',
         unreadCount: _random.nextInt(10) * 10,
+      );
+
+      // 4.patch all data
+      users.add(ChatStartArgs(
+        user: user,
+        userContact: userContact,
+        extra: extra,
       ));
     }
 

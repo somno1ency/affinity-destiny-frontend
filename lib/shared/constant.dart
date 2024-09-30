@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppConstant {
-  AppConstant._();
-
   // 1.app level definition
   static const bool appLogin = true;
 
@@ -116,4 +114,6 @@ class AppConstant {
 
   // N.others definition
   static const String cnPhonePrefix = '+86';
+
+  AppConstant._();
 }
