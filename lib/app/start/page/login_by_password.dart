@@ -142,7 +142,7 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
                 icon: EvaIcons.arrowCircleRight,
                 iconSize: 24,
                 callback: () {
-                  Navigator.of(context).pushNamed(AppRouter.loginByPhone);
+                  Get.toNamed(AppRouter.loginByPhone);
                 },
               ),
             ),
@@ -150,7 +150,7 @@ class _LoginByPasswordPageState extends State<LoginByPasswordPage>
         ),
         iconButton: IconButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRouter.chatStart);
+            Get.toNamed(AppRouter.chatStart);
           },
           icon: const Icon(
             EvaIcons.arrowCircleRight,

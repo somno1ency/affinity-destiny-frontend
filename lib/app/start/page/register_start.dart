@@ -85,7 +85,7 @@ class _RegisterPageState extends State<RegisterStartPage>
         ),
         iconButton: IconButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRouter.registerCode);
+            Get.toNamed(AppRouter.registerCode);
           },
           icon: const Icon(
             EvaIcons.arrowCircleRight,

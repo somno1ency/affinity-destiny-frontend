@@ -3,17 +3,12 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'package:affinity_destiny/lang/lang_key.dart';
+import 'package:affinity_destiny/app/group/controller/group_chat_setting_processor.dart';
 import 'package:affinity_destiny/component/chat/app_chat_bar.dart';
-import 'package:affinity_destiny/model/orm/group.dart';
 import 'package:affinity_destiny/shared/constant.dart';
 
-class GroupChatQrCodePage extends StatelessWidget {
-  final Group group;
-
-  const GroupChatQrCodePage({
-    super.key,
-    required this.group,
-  });
+class GroupChatQrCodePage extends GetView<GroupChatSettingProcessorController> {
+  const GroupChatQrCodePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +34,15 @@ class GroupChatQrCodePage extends StatelessWidget {
           Center(
             child: Column(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
-                  backgroundImage:
-                      AssetImage('assets/images/avatar/avatar_001.webp'),
+                  backgroundImage: AssetImage(controller.args.group.icon),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  '${LangKey.navMenuGroupChat.tr}: ${group.name}',
+                  '${LangKey.navMenuGroupChat.tr}: ${controller.args.group.name}',
                   style: AppConstant.textThemePrimary.bodySmall!.copyWith(
-                    color: AppConstant.colorSub1,
+                    color: AppConstant.colorMain,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -64,11 +58,15 @@ class GroupChatQrCodePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                Text(
-                  LangKey.groupModifyQrCodeTips.trParams({'date': '9月27日前'}),
-                  style: AppConstant.textThemePrimary.labelMedium!.copyWith(
-                    color:
-                        AppConstant.colorSub1.withOpacity(AppConstant.opacity6),
+                SizedBox(
+                  width: Get.width * 0.7,
+                  child: Text(
+                    LangKey.groupModifyQrCodeTips.trParams({'date': '9月27日前'}),
+                    textAlign: TextAlign.center,
+                    style: AppConstant.textThemePrimary.labelMedium!.copyWith(
+                      color: AppConstant.colorSub1
+                          .withOpacity(AppConstant.opacity6),
+                    ),
                   ),
                 ),
               ],

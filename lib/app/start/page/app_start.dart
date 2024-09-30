@@ -57,7 +57,7 @@ class AppStartPage extends StatelessWidget {
       children: [
         OutlinedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRouter.registerStart);
+            Get.toNamed(AppRouter.registerStart);
           },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(
@@ -72,7 +72,7 @@ class AppStartPage extends StatelessWidget {
         ),
         OutlinedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRouter.loginByPhone);
+            Get.toNamed(AppRouter.loginByPhone);
           },
           style: ButtonStyle(
             side: WidgetStateProperty.all<BorderSide>(

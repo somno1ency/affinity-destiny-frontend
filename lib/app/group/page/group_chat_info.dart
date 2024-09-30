@@ -74,7 +74,7 @@ class GroupChatInfoPage extends GetView<GroupChatInfoController> {
                 onTap: () {
                   Get.toNamed(
                     AppRouter.groupChatMemberInfo,
-                    arguments: controller.args.users,
+                    arguments: controller.args,
                   );
                 },
                 child: Container(

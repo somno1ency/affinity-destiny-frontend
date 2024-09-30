@@ -19,7 +19,7 @@ class SetBackgroundWayPage extends StatelessWidget {
         title: LangKey.chatChooseBackground.tr,
         backgroundColor: AppConstant.colorWhite,
         callback: () {
-          Navigator.of(context).pushNamed(AppRouter.chooseBackground);
+          Get.toNamed(AppRouter.chooseBackground);
         },
         trailing: Icon(
           EvaIcons.chevronRightOutline,

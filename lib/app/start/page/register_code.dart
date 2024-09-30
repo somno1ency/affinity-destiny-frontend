@@ -79,7 +79,7 @@ class _RegisterCodePageState extends State<RegisterCodePage>
         ),
         iconButton: IconButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(AppRouter.chatStart);
+            Get.toNamed(AppRouter.chatStart);
           },
           icon: const Icon(
             EvaIcons.arrowCircleRight,

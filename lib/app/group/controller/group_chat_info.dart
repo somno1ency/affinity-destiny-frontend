@@ -20,7 +20,7 @@ class GroupChatInfoController extends GetxController {
   }
 
   List<MenuItem> getMenuItems() {
-    double trailingWidth = Get.width * 0.6;
+    double trailingWidth = Get.width * 0.5;
     return [
       MenuItem(
         title: LangKey.groupGroupName.tr,
@@ -28,7 +28,7 @@ class GroupChatInfoController extends GetxController {
         callback: () {
           Get.toNamed(
             AppRouter.groupChatSetName,
-            arguments: args.group,
+            arguments: args,
           );
         },
         trailing: SizedBox(
@@ -57,7 +57,7 @@ class GroupChatInfoController extends GetxController {
         callback: () {
           Get.toNamed(
             AppRouter.groupChatQrCode,
-            arguments: args.group,
+            arguments: args,
           );
         },
         trailing: SizedBox(
@@ -86,7 +86,7 @@ class GroupChatInfoController extends GetxController {
         callback: () {
           Get.toNamed(
             AppRouter.groupChatSetRemark,
-            arguments: args.group,
+            arguments: args,
           );
         },
         trailing: Icon(
@@ -136,7 +136,7 @@ class GroupChatInfoController extends GetxController {
         callback: () {
           Get.toNamed(
             AppRouter.groupChatSetNickname,
-            arguments: args.groupContact,
+            arguments: args,
           );
         },
         trailing: SizedBox(
@@ -183,7 +183,7 @@ class GroupChatInfoController extends GetxController {
           Get.toNamed(
             AppRouter.setBackgroundWay,
             // TODO: here the setBackgroundWay page entry params model need to consider different from type
-            arguments: args.groupContact,
+            arguments: args,
           );
         },
         trailing: Icon(
