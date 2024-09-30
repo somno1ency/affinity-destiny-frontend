@@ -74,7 +74,7 @@ class GroupChatSetRemarkPage
                         CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                              AssetImage(controller.args.group.icon),
+                              AssetImage(controller.args.group.avatar),
                         ),
                         const SizedBox(width: 10),
                         SizedBox(

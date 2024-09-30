@@ -1,19 +1,23 @@
 class Group {
   final int id;
-  final int ownerId;
-  final String groupId;
+  final String customId;
+  final int categoryId;
+  final String categoryName;
+  final int categoryStar;
   final String name;
-  final String icon;
-  final int category;
+  final int ownerId;
+  final String avatar;
   final String memo;
 
   const Group({
     required this.id,
-    required this.ownerId,
-    required this.groupId,
     required this.name,
-    required this.category,
-    this.icon = '',
+    required this.ownerId,
+    this.customId = '',
+    this.avatar = '',
     this.memo = '',
+    this.categoryId = 0,
+    this.categoryName = '',
+    this.categoryStar = 0,
   });
 }

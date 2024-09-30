@@ -23,7 +23,7 @@ class ChooseBackgroundPage extends StatelessWidget {
           src: 'assets/images/background.png',
           nameZh: '背景$i',
           nameEn: 'Background$i',
-          category: 1,
+          type: 1,
         ),
       );
     }

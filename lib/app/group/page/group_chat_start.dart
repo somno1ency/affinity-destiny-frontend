@@ -86,7 +86,7 @@ class GroupChatStartPage extends GetView<GroupChatStartController> {
               return ChatStartUnit(
                 chatStartItem: ChatStartItem(
                   name: groups[index].group.name,
-                  avatar: groups[index].group.icon,
+                  avatar: groups[index].group.avatar,
                   isDisturb: groups[index].groupContact.isDisturb,
                   lastMsg: groups[index].extra.lastMsg,
                   lastMsgTime: groups[index].extra.lastMsgTime,

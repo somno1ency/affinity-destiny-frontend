@@ -26,11 +26,11 @@ class GroupChatStartController extends GetxController {
       int identity = _random.nextInt(3) + 1;
       Group group = Group(
         id: i,
-        ownerId: i,
-        groupId: 'Group_$i',
         name: '${WordPair.random().asPascalCase}_Group',
-        category: i,
-        icon: 'assets/images/avatar/avatar_00$identity.webp',
+        ownerId: i,
+        customId: 'Group_$i',
+        categoryId: i,
+        avatar: 'assets/images/avatar/avatar_00$identity.webp',
       );
 
       // 2.group_contact part
@@ -40,7 +40,6 @@ class GroupChatStartController extends GetxController {
         userId: SharedController.to.currentUser.id,
         isDisturb: true,
         isTop: false,
-        isRemind: true,
         background: '',
         userNickname: SharedController.to.currentUser.nickname,
         isShowNickname: true,

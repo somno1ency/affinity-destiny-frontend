@@ -2,19 +2,18 @@ class UserContact {
   final int id;
   final int ownerId;
   final int dstId;
-  // TODO: need to add the below fields to table for record the specific settings for each user
+  final String background;
   final bool isDisturb;
   final bool isTop;
   final bool isRemind;
-  final String background;
 
   const UserContact({
     required this.id,
     required this.ownerId,
     required this.dstId,
+    required this.background,
     required this.isDisturb,
     required this.isTop,
     required this.isRemind,
-    required this.background,
   });
 }

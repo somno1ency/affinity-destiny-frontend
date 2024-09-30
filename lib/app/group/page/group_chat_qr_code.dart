@@ -36,7 +36,7 @@ class GroupChatQrCodePage extends GetView<GroupChatSettingProcessorController> {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage(controller.args.group.icon),
+                  backgroundImage: AssetImage(controller.args.group.avatar),
                 ),
                 const SizedBox(height: 10),
                 Text(
