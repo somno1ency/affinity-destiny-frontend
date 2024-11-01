@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppConstant {
   // 1.app level definition
-  static const bool appLogin = true;
+  static const bool appLogin = false;
 
   // 2.color definition
   static const Color colorTheme = Colors.teal;
@@ -114,6 +114,8 @@ class AppConstant {
 
   // N.others definition
   static const String cnPhonePrefix = '+86';
+
+  static const String apiUrl = 'http://127.0.0.1';
 
   AppConstant._();
 }
